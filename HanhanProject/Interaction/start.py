@@ -14,11 +14,14 @@ import threading
 from tkinter import *
 
 import time
-from picture_handle import picture_handle
 
-from my_keyboard import key_input
+from BikeGame.base_action import *
+from BikeGame.picture_handle import *
+
+from my_keyboard import *
 
 PATH='H:\kk'#截图储存位置
+SCREEN_SHOT_TIME=0.04#截屏间隔时间
 
 #周智圆 2019.8.23
 #程序界面函数
@@ -35,7 +38,7 @@ def StartMouseEvent(event):
     handle=event.Window            #窗口句柄
     print(handle)
     #双击左键，进入游戏窗口
-    if clicktime[-1]-clicktime[-2]<1:
+    if clicktime[-1]-clicktime[-2]<0.5:
         # 获取游戏窗口位置
         left, top, right, bottom = win32gui.GetWindowRect(handle)
         # 获取游戏窗口句柄的类名和标题
@@ -46,11 +49,10 @@ def StartMouseEvent(event):
         hm.UnhookMouse()
         #开始截屏qs
         print(left, top, right, bottom)
-        timer = threading.Timer(1, screen_shot,(left, top, right-left, bottom-top, PATH,))
+        timer = threading.Timer(SCREEN_SHOT_TIME, screen_shot,(left, top, right-left, bottom-top, PATH,))
         timer.start()
-        #模拟键盘输入
-        #key_input("s")
-        #key_input("Down_Arrow")
+        #模拟游戏输入
+        game_base_action()
 
         # 返回True代表将事件继续传给其他句柄，为False则停止传递，即被拦截
     return True
@@ -80,12 +82,12 @@ def screen_shot(x,y,w,h,path):
     string = string3 + string2
     print(string)
     img = pyautogui.screenshot(region=[x,y,w,h])
-    #picture_handle(img)
+    img=pic_change(img)#图片预处理
     img.save(os.path.join(path,os.path.basename(string)))
     picture_i = int(picture_i)
     picture_i +=1
     global timer
-    timer = threading.Timer(1, screen_shot,(x,y,w,h,path,))
+    timer = threading.Timer(SCREEN_SHOT_TIME, screen_shot,(x,y,w,h,path,))
     timer.start()
 
 #周智圆 2019.8.23
