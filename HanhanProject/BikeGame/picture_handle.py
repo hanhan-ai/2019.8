@@ -23,6 +23,6 @@ def pic_change(img):
                 img.putpixel((i, j), (255, 255, 255, 255))  #
     img = img.convert("L")
     x,y=img.size
-    return img.crop((0, 0,x,y ))  # (left, upper, right, lower)
+    return array(img.crop((0, 0,x,y )))  # (left, upper, right, lower)
 
 
