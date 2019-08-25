@@ -23,6 +23,8 @@ from BikeGame.reward_handle import *
 
 from my_keyboard import *
 
+from DeepQNetworkBall.Network import startNetwork
+
 PATH='H:\kk'#截图储存位置
 SCREEN_SHOT_TIME=0.04#截屏间隔时间
 LAST_ADR = 0 #上一张图肾上腺素值
@@ -50,6 +52,7 @@ def game_convertion(action):
 clicktime=[0]#记录每次点击事件时间
 def StartMouseEvent(event):
     global handle,clickn,clicktime
+    global left, top, right, bottom#截图窗口位置
     clicktime.append(time.time())                #事件发生的时间
     handle=event.Window            #窗口句柄
     print(handle)
@@ -73,6 +76,10 @@ def StartMouseEvent(event):
 
         #模拟游戏输入
         game_base_action()
+
+        #开始进行神经网络的循环
+        #赵士陆 2019.8.25  20：54
+        startNetwork()
 
         # 返回True代表将事件继续传给其他句柄，为False则停止传递，即被拦截
     return True

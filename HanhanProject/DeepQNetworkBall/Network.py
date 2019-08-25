@@ -16,6 +16,7 @@ import random
 # import pygame
 from collections import *
 import BikeGame.ai_action as ai_act
+from Interaction.start import game_convertion as gc
 # import matplotlib.pyplot as plt
 
 
@@ -207,7 +208,7 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
     stay = np.zeros([ACTIONS])
     stay[3] = 1
     # get the first state by doing nothing and preprocess the image to 80x80x4
-    reward_t, frame_t = ai_act.game_ai_action(stay)                             # do nothing
+    reward_t, frame_t = gc(stay)                             # do nothing
     # reward_t, frame_t = game.step(stay)
     # frame_t:input one frame; r_0:reward of first state; terminal:judge game stop or not
 
@@ -251,7 +252,7 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
             epsilon -= (INITIAL_EPSILON - FINAL_EPSILON) / EXPLORE
 
         # run the selected action and observe next state and reward
-        reward_t, frame_t1_colored = ai_act.game_ai_action(action_t)    # ----------THE ACTIONS EXECUTED!--------
+        reward_t, frame_t1_colored = gc(action_t)    # ----------THE ACTIONS EXECUTED!--------
         next_frame_t = cv2.cvtColor(cv2.resize(frame_t1_colored, (80, 80)), cv2.COLOR_BGR2GRAY)
         ret, next_frame_t = cv2.threshold(next_frame_t, 1, 255, cv2.THRESH_BINARY)
 
@@ -335,12 +336,9 @@ def startTrain():
     trainNetwork(s, readout, h_fc1, sess)
 
 
-def main():         # START
+def startNetwork():         # START
     startTrain()
 
-
-if __name__ == "__main__":
-    main()
 
 
 
