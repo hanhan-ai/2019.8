@@ -2,8 +2,8 @@ from PIL import Image
 from numpy import *
 
 
-#作者：赵子轩；最终修改时间：8.23
-#传入图片img作为参数，输出处理完成的图片并保存在当前文件夹
+#作者：赵子轩；最终修改时间：8.25
+#传入图片img作为参数，输出处理完成的图片对应的数组
 def pic_change(img):
     width = img.size[0]  # 长度
     height = img.size[1]  # 宽度
@@ -23,6 +23,6 @@ def pic_change(img):
                 img.putpixel((i, j), (255, 255, 255, 255))  #
     img = img.convert("L")
     x,y=img.size
-    return array(img.crop((0, 0,x,y )))  # (left, upper, right, lower)
+    return ndarray(img.crop((0, 0,x,y )))  # (left, upper, right, lower)
 
 
