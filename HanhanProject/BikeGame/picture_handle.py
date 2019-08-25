@@ -21,16 +21,6 @@ def pic_change(img):
             if (data[0] >= 75 and data[1] >= 30 and data[0] <= 110 and data[1] <= 60 and data[
                 2] <= 20):  # RGBA的r值大于170，并且g值大于170,并且b值大于170
                 img.putpixel((i, j), (255, 255, 255, 255))  #
-    # img = img.convert("RGB")#把图片强制转成RGB
-
-    # imagearray = array(img)
-    # print(imagearray)
-    #
-    # for i in range(1,5):
-    #     imagearray = 255.0 * (imagearray / 255.0) ** 2
-    #     i+=1
-    #
-    # img = Image.fromarray(uint8(imagearray))
     img = img.convert("L")
     x,y=img.size
     return img.crop((0, 0,x,y ))  # (left, upper, right, lower)

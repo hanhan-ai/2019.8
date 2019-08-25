@@ -167,7 +167,7 @@ def key_up(str=''):
 #周智圆 2019.8.23
 #模拟tap键盘
 #str：键盘输入值
-def key_up(str=''):
+def key_tap(str=''):
     win32api.keybd_event(VK_CODE[str], 0, 0, 0)
     win32api.keybd_event(VK_CODE[str], 0, win32con.KEYEVENTF_KEYUP, 0)
     time.sleep(0.01)
