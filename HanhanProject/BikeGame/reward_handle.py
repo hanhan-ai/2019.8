@@ -16,4 +16,7 @@ def reward_handle(img):
                 x += 1
             y += 1
 
-    return(1 - (x / y))
+    if x==0:
+        return 0
+    else:
+        return(1 - (x / y))
