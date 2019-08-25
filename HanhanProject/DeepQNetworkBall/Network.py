@@ -15,10 +15,10 @@ import cv2
 import random
 # import pygame
 from collections import *
-import HanhanProject.BikeGame.ai_action as ai_act
-
-
+import BikeGame.ai_action as ai_act
 # import matplotlib.pyplot as plt
+
+
 """
 # Define basic parameters of the simple test game
 GAME = 'My DQN ball catch'
@@ -207,7 +207,8 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
     stay = np.zeros([ACTIONS])
     stay[3] = 1
     # get the first state by doing nothing and preprocess the image to 80x80x4
-    reward_t, frame_t = ai_act.game_ai_action(stay)                                       # do nothing
+    reward_t, frame_t = ai_act.game_ai_action(stay)                             # do nothing
+    # reward_t, frame_t = game.step(stay)
     # frame_t:input one frame; r_0:reward of first state; terminal:judge game stop or not
 
     frame_t = cv2.cvtColor(cv2.resize(frame_t, (80, 80)), cv2.COLOR_BGR2GRAY)
@@ -250,19 +251,19 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
             epsilon -= (INITIAL_EPSILON - FINAL_EPSILON) / EXPLORE
 
         # run the selected action and observe next state and reward
-        reward_t, frame_t1_colored = ai_act.game_ai_action(action_t)            # ----------------THE ACTIONS EXECUTED!-------------
+        reward_t, frame_t1_colored = ai_act.game_ai_action(action_t)    # ----------THE ACTIONS EXECUTED!--------
         next_frame_t = cv2.cvtColor(cv2.resize(frame_t1_colored, (80, 80)), cv2.COLOR_BGR2GRAY)
         ret, next_frame_t = cv2.threshold(next_frame_t, 1, 255, cv2.THRESH_BINARY)
 
         # count = 1
         # plt.figimage(next_frame_t)
-        # plt.savefig("x_t_image" + str(count) + ".png")            # to save a convoluted image to debug
+        # plt.savefig("x_t_image" + str(count) + ".png")                # to save a convoluted image to debug
         # count += 1
 
-        next_frame_t = np.reshape(next_frame_t, (80, 80, 1))        # unnecessary operation ??? NO,NECESSARY!
+        next_frame_t = np.reshape(next_frame_t, (80, 80, 1))            # unnecessary operation ??? NO,NECESSARY!
         next_state_t = np.append(next_frame_t, state_t[:, :, :3], axis=2)
 
-        # count = 1                                                 # to save a reshaped image to debug//failed
+        # count = 1                                                     # to save a reshaped image to debug//failed
         # plt.imshow(next_frame_t)
         # plt.show()
         # plt.savefig("x_t_image" + str(count) + ".png")
