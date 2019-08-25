@@ -9,5 +9,5 @@ def game_ai_action(action):
         key_tap('right_arrow')
     elif action[2]==1:
         key_tap('spacebar')
-    else:
+    elif action[3]==1:
         pass

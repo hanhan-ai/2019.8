@@ -13,10 +13,13 @@ import numpy as np
 import tensorflow as tf
 import cv2
 import random
-import pygame
+# import pygame
 from collections import *
-import matplotlib.pyplot as plt
+import HanhanProject.BikeGame.ai_action as ai_act
 
+
+# import matplotlib.pyplot as plt
+"""
 # Define basic parameters of the simple test game
 GAME = 'My DQN ball catch'
 BLACK = (0, 0, 0)               # colors
@@ -31,7 +34,7 @@ MOVE_LEFT = [0, 1, 0]
 MOVE_RIGHT = [0, 0, 1]
 
 # /----------------------------------GAME PART--------------------------------------------/
-
+# this is a simple game to test the DQN
 
 class Game (object):                                                # Create a game environment
     def __init__(self):
@@ -104,10 +107,11 @@ class Game (object):                                                # Create a g
         pygame.display.update()
 
         return reward, screen_image
-
+"""
 
 # Define the basic parameters of the DeepQNetwork
-ACTIONS = 3                 # NUMBER OF VALID ACTIONS
+ACTIONS = 4                 # NUMBER OF VALID ACTIONS
+STAYACTION = 3              # NUMBER OF STAY ACTION IN ACTION VECTOR
 GAMMA = 0.95                # DECAY RATE OF PAST OBSERVATIONS
 OBSERVE = 100000            # TIME OF STEPS TO OBSERVE BEFORE TRAINING
 EXPLORE = 2000000           # FRAMES OVER WHICH TO ANNEAL EPSILON
@@ -188,7 +192,7 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
     train_step = tf.train.AdamOptimizer(1e-6).minimize(cost)                            # process of train circulation
 
     # import the game invironment
-    game = Game()
+    # game = Game()
 
     # Game never over
     terminal = 0
@@ -197,13 +201,13 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
     D = deque()
 
     # printing
-    a_file = open("logs_" + GAME + "/readout.txt", 'w')
-    h_file = open("logs_" + GAME + "/hidden.txt", 'w')
+    a_file = open("logs_" + "bike" + "/readout.txt", 'w')
+    h_file = open("logs_" + "bike" + "/hidden.txt", 'w')
 
-    stay = np.zeros([3])
-    stay[0] = 1
+    stay = np.zeros([ACTIONS])
+    stay[3] = 1
     # get the first state by doing nothing and preprocess the image to 80x80x4
-    reward_t, frame_t = game.step(stay)                                         # do nothing
+    reward_t, frame_t = ai_act.game_ai_action(stay)                                       # do nothing
     # frame_t:input one frame; r_0:reward of first state; terminal:judge game stop or not
 
     frame_t = cv2.cvtColor(cv2.resize(frame_t, (80, 80)), cv2.COLOR_BGR2GRAY)
@@ -239,14 +243,14 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
                 action_index = np.argmax(result_t)                  # ----------------NEEDS TO MODIFY!!!!!!-------------
                 action_t[action_index] = 1                          # -----------------UPDATE:MODIFIED------------------
         else:
-            action_t[0] = 1          # do nothing
+            action_t[STAYACTION] = 1          # do nothing
 
         # scale down epsilon
         if epsilon > FINAL_EPSILON and t > OBSERVE:
             epsilon -= (INITIAL_EPSILON - FINAL_EPSILON) / EXPLORE
 
         # run the selected action and observe next state and reward
-        reward_t, frame_t1_colored = game.step(action_t)            # ----------------THE ACTIONS EXECUTED!-------------
+        reward_t, frame_t1_colored = ai_act.game_ai_action(action_t)            # ----------------THE ACTIONS EXECUTED!-------------
         next_frame_t = cv2.cvtColor(cv2.resize(frame_t1_colored, (80, 80)), cv2.COLOR_BGR2GRAY)
         ret, next_frame_t = cv2.threshold(next_frame_t, 1, 255, cv2.THRESH_BINARY)
 
@@ -302,7 +306,7 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
 
         # save progress every 10000 iterations
         if t % 10000 == 0:
-            saver.save(sess, 'saved_networks/' + GAME + '-dqn', global_step=t)
+            saver.save(sess, 'saved_networks/' + 'bike' + '-dqn', global_step=t)
 
         # print info
         state = ""
@@ -313,7 +317,7 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
         else:
             state = "train"
 
-        print("TIMESTEP", t, "/ STATE", state, \
+        print("TIMESTEP", t, "/ STATE", state,
             "/ EPSILON", epsilon, "/ ACTION", action_index, "/ REWARD", reward_t, \
             "/ Q_MAX %e" % np.max(result_t))
         # write info to files
