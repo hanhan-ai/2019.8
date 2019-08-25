@@ -1,6 +1,6 @@
 #作者：赵子轩；最终修改时间：8.25
-#传入图片img作为参数，输出处理完成后输出一个百分数作为reward
-def reward_handle(img):
+#传入图片img，传入LAST_ADR上一次处理值，输出一个0或1作为reward
+def reward_handle(img,LAST_ADR):
     img = img.crop((200, 453, 440, 467))  # (left, upper, right, lower)
     x = 0
     y = 0
@@ -16,7 +16,9 @@ def reward_handle(img):
                 x += 1
             y += 1
 
-    if x==0:
+    if ((1-(x/y))<(LAST_ADR)*0.5):  #肾上腺素减少到之前的50%
+        LAST_ADR = 1 - (x / y)
         return 0
     else:
-        return(1 - (x / y))
+        LAST_ADR = 1 - (x / y)
+        return 1

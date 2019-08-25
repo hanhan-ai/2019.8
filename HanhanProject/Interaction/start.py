@@ -22,6 +22,7 @@ from my_keyboard import *
 
 PATH='H:\kk'#截图储存位置
 SCREEN_SHOT_TIME=0.04#截屏间隔时间
+LAST_ADR = 0 #上一张图肾上腺素值
 
 #周智圆 2019.8.23
 #程序界面函数
