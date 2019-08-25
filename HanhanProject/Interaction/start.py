@@ -16,7 +16,10 @@ from tkinter import *
 import time
 
 from BikeGame.base_action import *
+from BikeGame.ai_action import *
+
 from BikeGame.picture_handle import *
+from BikeGame.reward_handle import *
 
 from my_keyboard import *
 
@@ -29,6 +32,18 @@ LAST_ADR = 0 #上一张图肾上腺素值
 def first_window(top):
     stop_button = Button(top, text="点我终止程序", command=sys.exit)
     stop_button.pack()
+
+#周智圆 2019.8.25
+#通用转化函数函数
+#acton:游戏操作
+#rw:reward  frame:环境状态数组
+def game_convertion(action):
+    global left, top, right, bottom#截图窗口位置
+    game_ai_action(action)
+    img = pyautogui.screenshot(region=[left, top, right-left, bottom-top])
+    rw=reward_handle(img,LAST_ADR)
+    frame=pic_change(img)
+    return rw,frame
 
 #周智圆 2019.8.23
 # 鼠标左击事件处理函数
@@ -48,10 +63,14 @@ def StartMouseEvent(event):
         print(title, clsname)
         # 取消鼠标钩子
         hm.UnhookMouse()
+
+        """
         #开始截屏qs
         print(left, top, right, bottom)
         timer = threading.Timer(SCREEN_SHOT_TIME, screen_shot,(left, top, right-left, bottom-top, PATH,))
         timer.start()
+        """
+
         #模拟游戏输入
         game_base_action()
 
