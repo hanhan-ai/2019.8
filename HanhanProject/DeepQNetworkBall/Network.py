@@ -218,7 +218,7 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
     # saving and loading networks
     saver = tf.train.Saver()
     sess.run(tf.initialize_all_variables())
-    checkpoint = tf.train.get_checkpoint_state("saved_networks")
+    checkpoint = tf.train.get_checkpoint_state("saved_bike_networks")
     if checkpoint and checkpoint.model_checkpoint_path:
         saver.restore(sess, checkpoint.model_checkpoint_path)
         print("Successfully loaded:", checkpoint.model_checkpoint_path)
@@ -306,7 +306,7 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
 
         # save progress every 10000 iterations
         if t % 10000 == 0:
-            saver.save(sess, 'saved_networks/' + 'bike' + '-dqn', global_step=t)
+            saver.save(sess, 'saved_bike_networks/' + 'bike' + '-dqn', global_step=t)
 
         # print info
         state = ""
@@ -328,14 +328,14 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
             cv2.imwrite("logs_tetris/frame" + str(t) + ".png", next_frame_t)
 
 
-def playGame():
+def startTrain():
     sess = tf.InteractiveSession()
     s, readout, h_fc1 = createNetwork()
     trainNetwork(s, readout, h_fc1, sess)
 
 
 def main():         # START
-    playGame()
+    startTrain()
 
 
 if __name__ == "__main__":
