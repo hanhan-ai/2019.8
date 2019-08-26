@@ -1,4 +1,5 @@
 from Interaction.my_keyboard import *
+from Interaction.start import *
 import threading
 import time
 #周智圆 2019.8.23
@@ -6,7 +7,10 @@ import time
 def fun():
     try:
         while True:
-            key_press('up_arrow')
+            if HANDLE.SetForegroundWindow()==0:
+                pass
+            else:
+                key_press('up_arrow')
     except Exception as e:
         print(e)
     finally:
