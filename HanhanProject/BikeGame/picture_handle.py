@@ -1,5 +1,6 @@
 from PIL import Image
 from numpy import *
+import numpy as np
 
 
 #作者：赵子轩；最终修改时间：8.25
@@ -23,6 +24,8 @@ def pic_change(img):
                 img.putpixel((i, j), (255, 255, 255, 255))  #
     img = img.convert("L")
     x,y=img.size
-    return ndarray(img.crop((0, 0,x,y )))  # (left, upper, right, lower)
+    img=img.crop((0, 0,x,y ))
+    img = np.array(img)
+    return img  # (left, upper, right, lower)
 
 

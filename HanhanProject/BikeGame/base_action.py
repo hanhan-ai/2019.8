@@ -4,9 +4,13 @@ import time
 #周智圆 2019.8.23
 #游戏默认操作函数
 def fun():
-    key_press('up_arrow')
-    time.sleep(None)
-    key_up('up_arrow')
+    try:
+        while True:
+            key_press('up_arrow')
+    except Exception as e:
+        print(e)
+    finally:
+        key_up('up_arrow')
 
 #周智圆 2019.8.23
 #启动游戏默认操作线程操作函数
