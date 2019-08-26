@@ -212,7 +212,7 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
     # reward_t, frame_t = game.step(stay)
     # frame_t:input one frame; r_0:reward of first state; terminal:judge game stop or not
 
-    frame_t = cv2.cvtColor(cv2.resize(frame_t, (80, 80)), cv2.COLOR_BGR2GRAY)
+    frame_t = cv2.cvtColor(cv2.UMat(cv2.resize(frame_t, (80, 80))), cv2.COLOR_RGB2GRAY)
     ret, frame_t = cv2.threshold(frame_t, 1, 255, cv2.THRESH_BINARY)            # ret means nothing
     state_t = np.stack((frame_t, frame_t, frame_t, frame_t), axis=2)            # one whole input batch, 4 frames.
     # x_image_array = np.array(frame_t)
