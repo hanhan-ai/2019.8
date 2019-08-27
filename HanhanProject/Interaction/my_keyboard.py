@@ -1,6 +1,6 @@
 #包含模拟键盘输入函数
 import win32api
-import win32con
+from win32con import *
 import time
 
 HANDLE=-1#游戏窗口句柄
@@ -152,6 +152,7 @@ VK_CODE = {
     "'": 0xDE,
     '`': 0xC0}
 
+'''
 #周智圆 2019.8.23
 #模拟press键盘
 #str：键盘输入值
@@ -170,4 +171,27 @@ def key_up(str=''):
 def key_tap(str=''):
     win32api.keybd_event(VK_CODE[str], 0, 0, 0)
     win32api.keybd_event(VK_CODE[str], 0, win32con.KEYEVENTF_KEYUP, 0)
+    time.sleep(0.01)
+'''''
+#周智圆 2019.8.27
+#模拟press键盘
+#k：键盘输入值
+def key_press(k):
+    global HANDLE
+    win32api.PostMessage(HANDLE, WM_KEYDOWN, k, 1)
+    print(HANDLE)
+
+#周智圆 2019.8.27
+#模拟up键盘
+#k：键盘输入值
+def key_up(k):
+    global HANDLE
+    win32api.PostMessage(HANDLE, WM_KEYUP, k, 1)
+
+#周智圆 2019.8.27
+#模拟tap键盘
+#k：键盘输入值
+def key_tap(k):
+    key_press(k)
+    key_up(k)
     time.sleep(0.01)

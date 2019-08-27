@@ -1,3 +1,5 @@
+from win32con import *
+
 from Interaction.my_keyboard import *
 import threading
 import time
@@ -6,11 +8,10 @@ import time
 #游戏默认操作函数
 def fun():
     try:
-        key_press('up_arrow')
-        PostMessage(temp_hWnd, WM_KEYDOWN, VK_UP, 1)
+        key_press(VK_UP)
         print("====go...")
         time.sleep(10000)
-        key_up('up_arrow')
+        key_up(VK_UP)
     except Exception as e:
         print(e)
     finally:
