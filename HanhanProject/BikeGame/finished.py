@@ -7,6 +7,11 @@ from Interaction.keyboard_forgame import *
 def get_text(img):
     if __name__ == '__main__':
         cropped = img.crop((300, 210, 380, 240))
+        print(cropped)
+
+        i = cropped
+        i.save('H:\kk\kw.jpg')
+
         cropped = cropped.convert('L')  # 把图片强制转成RGB
         width = cropped.size[0]  # 长度
         height = cropped.size[1]  # 宽度
@@ -20,6 +25,7 @@ def get_text(img):
         #cropped.save('wz1 return.jpg')
 
         text = pytesseract.image_to_string(cropped)
+        print(text)
         return text
 
 #周智圆 2019.8.27

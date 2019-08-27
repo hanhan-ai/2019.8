@@ -66,7 +66,9 @@ def StartMouseEvent(event):
         # 取消鼠标钩子
         #hm.UnhookMouse()
         #模拟游戏输入
-        game_base_action()
+        #game_base_action()
+        img = pyautogui.screenshot(region=[kb.LEFT, kb.TOP, kb.RIGHT - kb.LEFT, kb.BOTTOM - kb.TOP])
+        game_finished_handle(img)
         #开始进行神经网络的循环
         #赵士陆 2019.8.25  20：54
         startNetwork()
