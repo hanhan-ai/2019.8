@@ -1,9 +1,9 @@
 #包含模拟键盘输入函数
 import win32api
 import win32con
-
 import time
 
+HANDLE=-1#游戏窗口句柄
 VK_CODE = {
     'backspace': 0x08,
     'tab': 0x09,

@@ -1,20 +1,21 @@
 from Interaction.my_keyboard import *
-from Interaction.start import *
 import threading
 import time
+
 #周智圆 2019.8.23
 #游戏默认操作函数
 def fun():
     try:
-        while True:
-            if HANDLE.SetForegroundWindow()==0:
-                pass
-            else:
-                key_press('up_arrow')
+        key_press('up_arrow')
+        PostMessage(temp_hWnd, WM_KEYDOWN, VK_UP, 1)
+        print("====go...")
+        time.sleep(10000)
+        key_up('up_arrow')
     except Exception as e:
         print(e)
     finally:
-        key_up('up_arrow')
+        pass
+
 
 #周智圆 2019.8.23
 #启动游戏默认操作线程操作函数
