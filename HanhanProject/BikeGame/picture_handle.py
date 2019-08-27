@@ -25,7 +25,7 @@ def pic_change(img):
     img = img.convert("L")
     x,y=img.size
     img=img.crop((0, 0,x,y ))
-    img = np.array(img)
-    return img  # (left, upper, right, lower)
+    imgnp = np.array(img)
+    return imgnp  # (left, upper, right, lower)
 
 

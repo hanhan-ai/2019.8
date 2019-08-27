@@ -1,14 +1,14 @@
 #作者：赵子轩；最终修改时间：8.25
 #传入图片img，传入LAST_ADR上一次处理值，输出一个0或1作为reward
 def reward_handle(img,LAST_ADR):
-    img = img.crop((200, 453, 440, 467))  # (left, upper, right, lower)
+    img1 = img.crop((200, 453, 440, 467))  # (left, upper, right, lower)
     x = 0
     y = 0
-    width = img.size[0]  # 长度
-    height = img.size[1]  # 宽度
+    width = img1.size[0]  # 长度
+    height = img1.size[1]  # 宽度
     for i in range(0, width):  # 遍历所有长度的点
         for j in range(0, height):  # 遍历所有宽度的点
-            data = (img.getpixel((i, j)))  # 打印该图片的所有点
+            data = (img1.getpixel((i, j)))  # 打印该图片的所有点
 
             # print (data)#打印每个像素点的颜色RGBA的值(r,g,b,alpha)
             # print (data[0])#打印RGBA的r值

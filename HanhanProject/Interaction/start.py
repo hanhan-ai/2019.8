@@ -9,7 +9,7 @@ import os
 import sys
 
 from pymouse import PyMouse
-from pykeyboard import PyKeyboard
+# from pykeyboard import PyKeyboard
 
 import threading
 from tkinter import *
@@ -17,6 +17,10 @@ from tkinter import *
 import time
 
 from win32con import *
+
+import sys, os
+sys.path.append("..")
+sys.path.extend([os.path.join(root, name) for root, dirs, _ in os.walk("../") for name in dirs])
 
 from BikeGame.ai_action import *
 from BikeGame.base_action import *
@@ -99,9 +103,12 @@ def game_convertion(action):
     game_ai_action(action)
     img = pyautogui.screenshot(region=[kb.LEFT, kb.TOP, kb.RIGHT - kb.LEFT, kb.BOTTOM - kb.TOP])
     print(img)
-    game_finished_handle(img)
-    rw=reward_handle(img,LAST_ADR)
-    frame=pic_change(img)
+    imgfi = img
+    imgr = img
+    imgfr = img
+    game_finished_handle(imgfi)
+    rw=reward_handle(imgr,LAST_ADR)
+    frame=pic_change(imgfr)
     return rw,frame
 
 '''
