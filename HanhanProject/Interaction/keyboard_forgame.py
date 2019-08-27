@@ -2,8 +2,15 @@
 import win32api
 from win32con import *
 import time
+from pymouse import PyMouse
 
+#窗口信息
+LEFT=0
+RIGHT=0
+TOP=0
+BOTTOM=0
 HANDLE=-1#游戏窗口句柄
+
 VK_CODE = {
     'backspace': 0x08,
     'tab': 0x09,
@@ -195,3 +202,10 @@ def key_tap(k):
     key_press(k)
     key_up(k)
     time.sleep(0.01)
+
+#周智圆 2019.8.27
+#模拟鼠标左键
+#x,y 相对窗口点击位置
+def click(x,y):
+    mouse = PyMouse()
+    mouse.click(x+LEFT,y+TOP)

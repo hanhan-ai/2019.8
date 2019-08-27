@@ -3,7 +3,7 @@
 #action[left_arrow,right_arrow,spacebar]:1表示执行，0表示不执行
 from win32con import *
 
-from Interaction.my_keyboard import *
+from Interaction.keyboard_forgame import *
 
 def game_ai_action(action):
     if action[0]==1:

@@ -1,6 +1,6 @@
 from win32con import *
 
-from Interaction.my_keyboard import *
+from Interaction.keyboard_forgame import *
 import threading
 import time
 

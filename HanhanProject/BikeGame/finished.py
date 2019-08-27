@@ -2,7 +2,8 @@
 #传入图片img作为参数，输出处理完成图片中的文字
 #识别出CONTINUE时返回fel
 import pytesseract
-from PIL import Image
+from Interaction.keyboard_forgame import *
+
 def get_text(img):
     if __name__ == '__main__':
         cropped = img.crop((300, 210, 380, 240))
@@ -20,3 +21,20 @@ def get_text(img):
 
         text = pytesseract.image_to_string(cropped)
         return text
+
+#周智圆 2019.8.27
+#游戏通关处理
+def game_finished_handle(img):
+    if get_text(img)=='fel':
+        click(333,200)
+        time.sleep(1)
+        click(581,436)
+        time.sleep(1)
+        click(461,233)
+        time.sleep(1)
+        #点击第14关
+        click(434, 175)
+        time.sleep(3)
+    else:
+        pass
+
