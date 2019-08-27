@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a7c480d-9711-4817-9d44-41946bbefbff" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/BikeGame/continue.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BikeGame/finished.py" beforeDir="false" afterPath="$PROJECT_DIR$/BikeGame/finished.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Interaction/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/Interaction/start.py" afterDir="false" />
@@ -15,77 +16,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BikeGame/base_action.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-220">
-              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Interaction/keyboard_forgame.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="210" column="29" lean-forward="true" selection-start-line="210" selection-start-column="29" selection-end-line="210" selection-end-column="29" />
-              <folding>
-                <element signature="e#12#27#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DeepQNetworkBall/Network.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="217" column="39" lean-forward="true" selection-start-line="217" selection-start-column="39" selection-end-line="217" selection-end-column="39" />
-              <folding>
-                <element signature="e#136#154#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/cv2/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Interaction/start.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="73" selection-start-line="73" selection-end-line="73" />
+            <state relative-caret-position="262">
+              <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="70" selection-end-column="33" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <element signature="e#2759#3313#1" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BikeGame/picture_handle.py">
+        <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/pytesseract/pytesseract.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="110">
+              <caret line="252" selection-start-line="252" selection-end-line="252" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BikeGame/reward_handle.py">
+        <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/PyHook3/HookManager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="21" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="21" />
+            <state relative-caret-position="6156">
+              <caret line="324" selection-start-line="324" selection-end-line="324" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/pyscreeze/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6479">
+              <caret line="347" selection-start-line="347" selection-end-line="347" />
             </state>
           </provider>
         </entry>
@@ -93,19 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BikeGame/finished.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-              <folding>
-                <element signature="e#65#83#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DeepQNetworkBall/VectorEqualsResearch.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="209">
+              <caret line="105" column="22" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="22" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -114,13 +67,29 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BikeGame/ai_action.py">
+        <entry file="file://$PROJECT_DIR$/BikeGame/kw.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BikeGame/continue.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://F:/Program Files/Python37/Lib/site-packages/numpy/_pytesttester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-              <folding>
-                <element signature="e#77#105#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="703">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Interaction/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="11" lean-forward="true" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -142,7 +111,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Interaction/conversion.py" />
-        <option value="$PROJECT_DIR$/Interaction/test.py" />
         <option value="$PROJECT_DIR$/Interaction/setfocus" />
         <option value="H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/cv2/__init__.py" />
         <option value="$PROJECT_DIR$/DeepQNetworkBall/Network.py" />
@@ -151,15 +119,17 @@
         <option value="$PROJECT_DIR$/BikeGame/get_text.py" />
         <option value="$PROJECT_DIR$/Interaction/my_keyboard.py" />
         <option value="$PROJECT_DIR$/Interaction/keyboard_forgame.py" />
+        <option value="$PROJECT_DIR$/Interaction/test.py" />
+        <option value="H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/pytesseract/pytesseract.py" />
         <option value="$PROJECT_DIR$/Interaction/start.py" />
         <option value="$PROJECT_DIR$/BikeGame/finished.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="28" />
-    <option name="width" value="1183" />
-    <option name="height" value="1017" />
+    <option name="x" value="27" />
+    <option name="width" value="1523" />
+    <option name="height" value="1018" />
   </component>
   <component name="ProjectId" id="1Ptb7H56vlRu2DHvOkqHEQsMi7c" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -168,6 +138,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -203,7 +174,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -237,9 +207,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="H:\课程\2019实训\Python学习\练习\studywindow\venv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Interaction" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Interaction/start.py" />
@@ -272,6 +242,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.start" />
+      <item itemvalue="Python.test" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.start" />
@@ -318,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566874313255</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="周智圆 2019.8.27 含bug">
+      <created>1566886083104</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1566886083104</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -331,15 +312,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="23" y="0" width="946" height="813" extended-state="0" />
+    <frame x="22" y="0" width="1218" height="814" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28272828" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21761219" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6815287" weight="0.42983752" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49954504" visible="true" weight="0.3988183" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32890856" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6815287" visible="true" weight="0.42920354" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49954504" weight="0.3988183" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -397,23 +379,8 @@
     <MESSAGE value="周智圆 2019.8.23" />
     <MESSAGE value="周智圆 2019.8.27 模拟键盘只对游戏窗口作用" />
     <MESSAGE value="周智圆 2019.8.27" />
-    <option name="LAST_COMMIT_MESSAGE" value="周智圆 2019.8.27" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/BikeGame/finished.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/BikeGame/finished.py</url>
-          <line>9</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="周智圆 2019.8.27 含bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="周智圆 2019.8.27 含bug" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://F:/Program Files/Python37/Lib/threading.py">
@@ -455,16 +422,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Interaction/test.py" />
     <entry file="file://$PROJECT_DIR$/DeepQNetworkBall/logs_bike/hidden.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/PyHook3/HookManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="324" selection-start-line="324" selection-end-line="324" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -501,20 +460,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Interaction/setfocus">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/cv2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Interaction/setfocus" />
     <entry file="file://$PROJECT_DIR$/BikeGame/ai_action.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -551,16 +497,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeepQNetworkBall/Network.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="217" column="39" lean-forward="true" selection-start-line="217" selection-start-column="39" selection-end-line="217" selection-end-column="39" />
-          <folding>
-            <element signature="e#136#154#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BikeGame/reward_handle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -570,31 +506,98 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Interaction/keyboard_forgame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="210" column="29" lean-forward="true" selection-start-line="210" selection-start-column="29" selection-end-line="210" selection-end-column="29" />
+        <state relative-caret-position="3933">
+          <caret line="210" column="29" selection-start-line="210" selection-start-column="29" selection-end-line="210" selection-end-column="29" />
           <folding>
             <element signature="e#12#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DeepQNetworkBall/Network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3933">
+          <caret line="214" selection-start-line="214" selection-end-line="214" />
+          <folding>
+            <element signature="e#136#154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/cv2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Program Files/Python37/Lib/subprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22363">
+          <caret line="1177" selection-start-line="1177" selection-end-line="1177" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/PyHook3/HookManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6156">
+          <caret line="324" selection-start-line="324" selection-end-line="324" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/pyscreeze/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6479">
+          <caret line="347" selection-start-line="347" selection-end-line="347" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Program Files/Python37/Lib/site-packages/numpy/_pytesttester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Interaction/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="11" lean-forward="true" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/pytesseract/pytesseract.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="252" selection-start-line="252" selection-end-line="252" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Interaction/kw.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/kw.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/continue.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Interaction/start.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
+        <state relative-caret-position="262">
+          <caret line="69" column="8" selection-start-line="69" selection-start-column="8" selection-end-line="70" selection-end-column="33" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#2759#3313#1" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BikeGame/finished.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="209">
+          <caret line="105" column="22" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="22" />
           <folding>
-            <element signature="e#65#83#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

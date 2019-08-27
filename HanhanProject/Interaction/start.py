@@ -67,11 +67,9 @@ def StartMouseEvent(event):
         #hm.UnhookMouse()
         #模拟游戏输入
         game_base_action()
-        #img = pyautogui.screenshot(region=[kb.LEFT, kb.TOP, kb.RIGHT - kb.LEFT, kb.BOTTOM - kb.TOP])
-        #game_finished_handle(img)
         #开始进行神经网络的循环
         #赵士陆 2019.8.25  20：54
-        startNetwork()
+        #startNetwork()
         # 返回True代表将事件继续传给其他句柄，为False则停止传递，即被拦截
         return True
 
