@@ -1,5 +1,6 @@
 #包含模拟键盘输入函数
 import win32api
+import win32gui
 from win32con import *
 import time
 from pymouse import PyMouse
@@ -207,5 +208,8 @@ def key_tap(k):
 #模拟鼠标左键
 #x,y 相对窗口点击位置
 def click(x,y):
+    # 获取游戏窗口位置
+    global LEFT, TOP, RIGHT, BOTTOM
+    LEFT, TOP, RIGHT, BOTTOM = win32gui.GetWindowRect(HANDLE)
     mouse = PyMouse()
     mouse.click(x+LEFT,y+TOP)

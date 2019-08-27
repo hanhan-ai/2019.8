@@ -212,8 +212,8 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
     # reward_t, frame_t = game.step(stay)
     # frame_t:input one frame; r_0:reward of first state; terminal:judge game stop or not
 
-    frame_t = cv2.cvtColor(cv2.UMat(cv2.resize(frame_t, (80, 80))), cv2.COLOR_RGB2GRAY)
-    ret, frame_t = cv2.threshold(frame_t, 1, 255, cv2.THRESH_BINARY)            # ret means nothing
+    frame_t = cv2.resize(frame_t, (80, 80))
+    # ret, frame_t = cv2.threshold(frame_t, 1, 255, cv2.THRESH_BINARY)            # ret means nothing
     state_t = np.stack((frame_t, frame_t, frame_t, frame_t), axis=2)            # one whole input batch, 4 frames.
     # x_image_array = np.array(frame_t)
 
@@ -252,9 +252,9 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
             epsilon -= (INITIAL_EPSILON - FINAL_EPSILON) / EXPLORE
 
         # run the selected action and observe next state and reward
-        reward_t, frame_t1_colored = gc(action_t)    # ----------THE ACTIONS EXECUTED!--------
-        next_frame_t = cv2.cvtColor(cv2.resize(frame_t1_colored, (80, 80)), cv2.COLOR_BGR2GRAY)
-        ret, next_frame_t = cv2.threshold(next_frame_t, 1, 255, cv2.THRESH_BINARY)
+        reward_t, frame_t1_origin = gc(action_t)    # ----------THE ACTIONS EXECUTED!--------
+        next_frame_t = cv2.resize(frame_t1_origin, (80, 80))
+        # ret, next_frame_t = cv2.threshold(next_frame_t, 1, 255, cv2.THRESH_BINARY)
 
         # count = 1
         # plt.figimage(next_frame_t)
