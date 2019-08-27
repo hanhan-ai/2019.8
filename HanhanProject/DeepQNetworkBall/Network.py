@@ -18,6 +18,7 @@ from collections import *
 import BikeGame.ai_action as ai_act
 from Interaction.start import game_convertion as gc
 # import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 
 """
@@ -256,10 +257,10 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
         next_frame_t = cv2.resize(frame_t1_origin, (80, 80))
         # ret, next_frame_t = cv2.threshold(next_frame_t, 1, 255, cv2.THRESH_BINARY)
 
-        # count = 1
-        # plt.figimage(next_frame_t)
-        # plt.savefig("x_t_image" + str(count) + ".png")                # to save a convoluted image to debug
-        # count += 1
+        count = 1
+        plt.figimage(next_frame_t)
+        plt.savefig("x_t_image" + str(count) + ".png")                # to save a convoluted image to debug
+        count += 1
 
         next_frame_t = np.reshape(next_frame_t, (80, 80, 1))            # unnecessary operation ??? NO,NECESSARY!
         next_state_t = np.append(next_frame_t, state_t[:, :, :3], axis=2)
@@ -320,8 +321,13 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
             state = "train"
 
         print("TIMESTEP", t, "/ STATE", state,
-            "/ EPSILON", epsilon, "/ ACTION", action_index, "/ REWARD", reward_t, \
-            "/ Q_MAX %e" % np.max(result_t))
+            "/ EPSILON", epsilon, "/ ACTION", action_index, "/ REWARD", end='')
+        if reward_t==-1:
+            print('\033[1;31m -1\033[0m'
+, end='')
+        else:
+            print(  reward_t,end='')
+        print("/ Q_MAX %e" % np.max(result_t))
         # write info to files
 
         # if t % 10000 <= 100:

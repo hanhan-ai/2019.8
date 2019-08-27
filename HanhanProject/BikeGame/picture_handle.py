@@ -14,15 +14,19 @@ def pic_change(img):
 
             # print (data)#打印每个像素点的颜色RGBA的值(r,g,b,alpha)
             # print (data[0])#打印RGBA的r值
-            if (data[0] <= 10 and data[1] <= 10 and data[2] <= 18):  # RGBA的r值大于170，并且g值大于170,并且b值大于170
-                img.putpixel((i, j), (255, 0, 0, 255))  #
-            if (data[0] >= 115 and data[1] >= 120 and data[2] >= 120 and data[0] <= 170 and data[1] <= 180 and data[
-                2] <= 160):  # RGBA的r值大于170，并且g值大于170,并且b值大于170
+            # if (data[0] <= 10 and data[1] <= 10 and data[2] <= 18):  # RGBA的r值大于170，并且g值大于170,并且b值大于170
+            #     img.putpixel((i, j), (255, 0, 0, 255))  #
+            # if (data[0] >= 115 and data[1] >= 120 and data[2] >= 120 and data[0] <= 170 and data[1] <= 180 and data[
+            #     2] <= 160):  # RGBA的r值大于170，并且g值大于170,并且b值大于170
+            #     img.putpixel((i, j), (255, 255, 255, 255))  #
+            # if (data[0] >= 75 and data[1] >= 30 and data[0] <= 110 and data[1] <= 60 and data[
+            #     2] <= 20):  # RGBA的r值大于170，并且g值大于170,并且b值大于170
+            #     img.putpixel((i, j), (255, 255, 255, 255))  #
+            if (data[0] <= 30 and data[1] <= 30 and data[2] <= 30):  # RGBA的r值大于170，并且g值大于170,并且b值大于170
                 img.putpixel((i, j), (255, 255, 255, 255))  #
-            if (data[0] >= 75 and data[1] >= 30 and data[0] <= 110 and data[1] <= 60 and data[
-                2] <= 20):  # RGBA的r值大于170，并且g值大于170,并且b值大于170
-                img.putpixel((i, j), (255, 255, 255, 255))  #
+
     img = img.convert("L")
+    img.save('../BikeGame/jietu.jpg')
     x,y=img.size
     img=img.crop((0, 0,x,y ))
     imgnp = np.array(img)

@@ -4,13 +4,8 @@ import win32gui
 from win32con import *
 import time
 from pymouse import PyMouse
+from Interaction import global_var_model as gl
 
-#窗口信息
-LEFT=0
-RIGHT=0
-TOP=0
-BOTTOM=0
-HANDLE=-1#游戏窗口句柄
 
 VK_CODE = {
     'backspace': 0x08,
@@ -185,24 +180,24 @@ def key_tap(str=''):
 #模拟press键盘
 #k：键盘输入值
 def key_press(k):
-    global HANDLE
-    win32api.PostMessage(HANDLE, WM_KEYDOWN, k, 1)
-    print(HANDLE)
+    win32api.PostMessage(gl.HANDLE, WM_KEYDOWN, k, 1)
 
 #周智圆 2019.8.27
 #模拟up键盘
 #k：键盘输入值
 def key_up(k):
     global HANDLE
-    win32api.PostMessage(HANDLE, WM_KEYUP, k, 1)
+    win32api.PostMessage(gl.HANDLE, WM_KEYUP, k, 1)
 
 #周智圆 2019.8.27
 #模拟tap键盘
 #k：键盘输入值
 def key_tap(k):
     key_press(k)
+    gl.down=gl.down+1
+    time.sleep(0.1)
     key_up(k)
-    time.sleep(0.01)
+    gl.up = gl.up + 1
 
 #周智圆 2019.8.27
 #模拟鼠标左键
@@ -212,4 +207,4 @@ def click(x,y):
     global LEFT, TOP, RIGHT, BOTTOM
     LEFT, TOP, RIGHT, BOTTOM = win32gui.GetWindowRect(HANDLE)
     mouse = PyMouse()
-    mouse.click(x+LEFT,y+TOP)
+    mouse.click(x+gl.LEFT,y+gl.TOP)

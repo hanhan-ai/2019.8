@@ -28,18 +28,26 @@ from BikeGame.finished import *
 
 from BikeGame.picture_handle import *
 from BikeGame.reward_handle import *
-from Interaction import keyboard_forgame as kb
+from Interaction import global_var_model as gl
 
 
 PATH='H:\kk'#截图储存位置
 SCREEN_SHOT_TIME=0.04#截屏间隔时间
-LAST_ADR = 0 #上一张图肾上腺素值
 
+#周智圆 2019.8.27
+#点击按钮退出程序
+def stop_event():
+    print(gl.HANDLE)
+    key_up(VK_UP)
+    print("finally")
+    print('down,up',gl.down,gl.up)
+    gl.HANDLE = -1
+    sys.exit()
 
 #周智圆 2019.8.23
 #程序界面函数
 def first_window(top):
-    stop_button = Button(top, text="点我终止程序", command=sys.exit)
+    stop_button = Button(top, text="点我终止程序", command=stop_event)
     stop_button.pack()
 
 from DeepQNetworkBall.Network import *
@@ -53,32 +61,24 @@ def StartMouseEvent(event):
     print(handle)
     print('鼠标点击坐标',event.Position)
     #双击左键，开始，进入游戏窗口
-    if clicktime[-1]-clicktime[-2]<0.5 and handle!=kb.HANDLE:
-        kb.HANDLE=event.Window            #游戏窗口句柄
+    if clicktime[-1]-clicktime[-2]<0.5 and handle!=gl.HANDLE:
+        gl.HANDLE=event.Window            #游戏窗口句柄
         # 获取游戏窗口位置
-        kb.LEFT, kb.TOP, kb.RIGHT, kb.BOTTOM \
-            = win32gui.GetWindowRect(kb.HANDLE)
+        gl.LEFT, gl.TOP, gl.RIGHT, gl.BOTTOM \
+            = win32gui.GetWindowRect(gl.HANDLE)
         # 获取游戏窗口句柄的类名和标题
-        title = win32gui.GetWindowText(kb.HANDLE)
-        clsname = win32gui.GetClassName(kb.HANDLE)
+        title = win32gui.GetWindowText(gl.HANDLE)
+        clsname = win32gui.GetClassName(gl.HANDLE)
         print(title, clsname)
-        print("游戏窗口",kb.LEFT, kb.TOP, kb.RIGHT, kb.BOTTOM)
+        print("游戏窗口",gl.LEFT, gl.TOP, gl.RIGHT, gl.BOTTOM)
         # 取消鼠标钩子
         #hm.UnhookMouse()
         #模拟游戏输入
         game_base_action()
         #开始进行神经网络的循环
         #赵士陆 2019.8.25  20：54
-        #startNetwork()
+        startNetwork()
         # 返回True代表将事件继续传给其他句柄，为False则停止传递，即被拦截
-        return True
-
-    # 双击左键，结束，停止游戏
-    if clicktime[-1] - clicktime[-2] < 0.5 and kb.HANDLE==handle:
-        #key_up('up_arrow')
-        key_up(VK_UP)
-        print("finally")
-        kb.HANDLE=-1
     # 返回True代表将事件继续传给其他句柄，为False则停止传递，即被拦截
     return True
 
@@ -101,13 +101,13 @@ def ListenClick():
 #rw:reward  frame:环境状态数组
 def game_convertion(action):
     game_ai_action(action)
-    img = pyautogui.screenshot(region=[kb.LEFT, kb.TOP, kb.RIGHT - kb.LEFT, kb.BOTTOM - kb.TOP])
+    img = pyautogui.screenshot(region=[gl.LEFT, gl.TOP, gl.RIGHT - gl.LEFT, gl.BOTTOM - gl.TOP])
     print(img)
     imgfi = img
     imgr = img
     imgfr = img
     game_finished_handle(imgfi)
-    rw=reward_handle(imgr,LAST_ADR)
+    rw=reward_handle(imgr)
     frame=pic_change(imgfr)
     return rw,frame
 
