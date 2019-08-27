@@ -11,7 +11,6 @@ def fun():
         key_press(VK_UP)
         print("====go...")
         time.sleep(10000)
-        key_up(VK_UP)
     except Exception as e:
         print(e)
     finally:
