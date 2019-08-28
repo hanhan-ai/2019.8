@@ -3,14 +3,14 @@ from win32con import *
 from Interaction.keyboard_forgame import *
 import threading
 import time
+from Interaction import global_var_model as gl
 
 #周智圆 2019.8.23
 #游戏默认操作函数
 def fun():
     try:
-        key_press(VK_UP)
-        print("====go...")
-        time.sleep(10000)
+        while gl.STATE==True:
+            key_tap(VK_UP)
     except Exception as e:
         print(e)
     finally:

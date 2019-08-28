@@ -2,7 +2,12 @@ from Interaction import global_var_model as gl
 #作者：赵子轩；最终修改时间：8.25
 #传入图片img，传入LAST_ADR上一次处理值，输出一个0或1作为reward
 def reward_handle(img):
-    img1 = img.crop((216, 492, 478, 508))  # (left, upper, right, lower)
+    left=int(329/998*(gl.RIGHT-gl.LEFT))
+    upper=int(707/749*(gl.BOTTOM-gl.TOP))
+    right=int(685/998*(gl.RIGHT-gl.LEFT))
+    lower=int(731/749*(gl.BOTTOM-gl.TOP))
+    print(left, upper, right, lower)
+    img1 = img.crop((left, upper, right, lower ))  # (left, upper, right, lower)
     img1.save('../BikeGame/jindutiao.jpg')
     x = 0
     y = 0
