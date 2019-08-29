@@ -38,23 +38,30 @@ SCREEN_SHOT_TIME=0.04#截屏间隔时间
 #点击按钮退出程序
 def stop_event():
     print(gl.HANDLE)
-    key_up(VK_UP)
+    click(10, 20)
+    gl.STATE = False
+    time.sleep(1)
     print("finally")
     print('down,up',gl.down,gl.up)
     gl.HANDLE = -1
-    sys.exit()
-
+    print("==stop...")
+    while True:
+        if gl.RELEASE ==True:
+            sys.exit()
 #周智圆 2019.8.23
 #程序界面函数
 def first_window(top):
+    print("==============")
     stop_button = Button(top, text="点我终止程序", command=stop_event)
     stop_button.pack()
 
 from DeepQNetworkBall.Network import *
+
 #周智圆 2019.8.23
 # 鼠标左击事件处理函数
 clicktime=[0]#记录每次点击事件时间
 def StartMouseEvent(event):
+    print("srart....")
     global clickn,clicktime
     clicktime.append(time.time())                #事件发生的时间
     handle=event.Window #窗口句柄
@@ -72,7 +79,7 @@ def StartMouseEvent(event):
         print(title, clsname)
         print("游戏窗口",gl.LEFT, gl.TOP, gl.RIGHT, gl.BOTTOM)
         # 取消鼠标钩子
-        #hm.UnhookMouse()
+        hm.UnhookMouse()
         #模拟游戏输入
         game_base_action()
         #开始进行神经网络的循环
@@ -137,11 +144,13 @@ def screen_shot(x,y,w,h,path):
 #main函数
 if __name__ == "__main__":
     TOP=Tk()
-    first_window(TOP)
+    stop_button = Button(TOP, text="点我终止程序", command=stop_event)
+    stop_button.pack()
     t=threading.Thread(target=ListenClick,)
     t.setDaemon(True)#设为守护线程
     t.start()
     TOP.mainloop()
+
 
 
 

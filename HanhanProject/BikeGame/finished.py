@@ -63,7 +63,7 @@ def cmpHash(hash1, hash2):
 #传入图片img作为参数，判断图片是否符合要求
 #
 def get_text(img):
-    img0= img.crop((300, 210, 380, 240))
+    img0=img
     img0.save('../BikeGame/current.jpg')
     img1=cv2.imread('../BikeGame/current.jpg')
     img_modle = cv2.imread('../BikeGame/continue.jpg')
@@ -96,14 +96,14 @@ def get_text(img):
 #游戏通关处理
 def game_finished_handle(img):
     if get_text(img)==1:
-        click(333,200)
+        click(int(495/994*(gl.RIGHT-gl.LEFT)),int(322/746*(gl.BOTTOM-gl.TOP)))
         time.sleep(1.5)
-        click(619,476)
+        click(int(881/994*(gl.RIGHT-gl.LEFT)),int(698/746*(gl.BOTTOM-gl.TOP)))
         time.sleep(1.5)
-        click(500,286)
+        click(int(707/994*(gl.RIGHT-gl.LEFT)),int(380/746*(gl.BOTTOM-gl.TOP)))
         time.sleep(1.5)
-        #点击第14关
-        click(462, 205)
+        #点击第13关
+        click(int(733/994*(gl.RIGHT-gl.LEFT)),int(322/746*(gl.BOTTOM-gl.TOP)))
         time.sleep(5)
     else:
         pass

@@ -181,6 +181,7 @@ def key_tap(str=''):
 #k：键盘输入值
 def key_press(k):
     win32api.PostMessage(gl.HANDLE, WM_KEYDOWN, k, 1)
+    gl.RELEASE=False
 
 #周智圆 2019.8.27
 #模拟up键盘
@@ -188,6 +189,7 @@ def key_press(k):
 def key_up(k):
     global HANDLE
     win32api.PostMessage(gl.HANDLE, WM_KEYUP, k, 1)
+    gl.RELEASE=True
 
 #周智圆 2019.8.27
 #模拟tap键盘

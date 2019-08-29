@@ -19,7 +19,7 @@ import BikeGame.ai_action as ai_act
 from Interaction.start import game_convertion as gc
 # import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
-
+from Interaction import global_var_model as gl
 
 """
 # Define basic parameters of the simple test game
@@ -231,7 +231,7 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
     # start training
     epsilon = INITIAL_EPSILON
     t = 0       # times of train
-    while True:
+    while gl.STATE:
         # choose an action epsilon greedily
         result_t = net_result.eval(feed_dict={s: [state_t]})[0]         # the predict output of this time
         # action_t = np.zeros([ACTIONS])                                # the action vector
@@ -257,11 +257,10 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
         next_frame_t = cv2.resize(frame_t1_origin, (80, 80))
         # ret, next_frame_t = cv2.threshold(next_frame_t, 1, 255, cv2.THRESH_BINARY)
 
-        count = 1
-        plt.figimage(next_frame_t)
-        plt.savefig("x_t_image" + str(count) + ".png")                # to save a convoluted image to debug
-        count += 1
 
+        plt.figimage(next_frame_t)
+        #plt.savefig("../BikeGame/jietu/" + str(gl.pi) + ".png")                # to save a convoluted image to debug
+        #gl.pi = gl.pi + 1
         next_frame_t = np.reshape(next_frame_t, (80, 80, 1))            # unnecessary operation ??? NO,NECESSARY!
         next_state_t = np.append(next_frame_t, state_t[:, :, :3], axis=2)
 
