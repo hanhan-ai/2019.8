@@ -31,7 +31,19 @@ def pic_change(img):
             #     img.putpixel((i, j), (255, 255, 255, 255))  #
             #if (data[0] <= 30 and data[1] <= 30 and data[2] <= 30):  # RGBA的r值大于170，并且g值大于170,并且b值大于170
             #   img.putpixel((i, j), (255, 255, 255, 255))  #
+    img = img.convert("L")
+    img.save('../BikeGame/jietu0.jpg')
+    img = img.convert("RGB")
 
+    width = img.size[0]  # 长度
+    height = img.size[1]  # 宽度
+    for i in range(0, width):  # 遍历所有长度的点
+        for j in range(0, height):  # 遍历所有宽度的点
+            data = (img.getpixel((i, j)))  # 打印该图片的所有点
+            # print('data',data[0],data[1],data[2])
+            if (data[0] <= 100 and data[1] <= 100 and data[2] <= 100):  # RGBA的r值大于170，并且g值大于170,并且b值大于170
+                img.putpixel((i, j - 1), (0, 0, 0, 255))  #
+                img.putpixel((i, j - 2), (0, 0, 0, 255))  # img = img.convert("L")
     img = img.convert("L")
     img.save('../BikeGame/jietu.jpg')
     x,y=img.size

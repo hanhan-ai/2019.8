@@ -14,9 +14,6 @@ from pymouse import PyMouse
 import threading
 from tkinter import *
 
-import time
-
-from win32con import *
 
 import sys, os
 sys.path.append("..")
