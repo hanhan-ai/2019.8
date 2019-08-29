@@ -259,8 +259,8 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
 
 
         plt.figimage(next_frame_t)
-        #plt.savefig("../BikeGame/jietu/" + str(gl.pi) + ".png")                # to save a convoluted image to debug
-        #gl.pi = gl.pi + 1
+        plt.savefig("../BikeGame/jietu/" + str(gl.pi) + ".png")                # to save a convoluted image to debug
+        gl.pi = gl.pi + 1
         next_frame_t = np.reshape(next_frame_t, (80, 80, 1))            # unnecessary operation ??? NO,NECESSARY!
         next_state_t = np.append(next_frame_t, state_t[:, :, :3], axis=2)
 

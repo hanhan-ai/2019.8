@@ -63,7 +63,7 @@ def cmpHash(hash1, hash2):
 #传入图片img作为参数，判断图片是否符合要求
 #
 def get_text(img):
-    img0=img
+    img0=img.crop((int(215/629*(gl.RIGHT-gl.LEFT)), int(173/473*(gl.BOTTOM-gl.TOP)),int(402/629*(gl.RIGHT-gl.LEFT)), int(226/473*(gl.BOTTOM-gl.TOP) )))
     img0.save('../BikeGame/current.jpg')
     img1=cv2.imread('../BikeGame/current.jpg')
     img_modle = cv2.imread('../BikeGame/continue.jpg')
@@ -71,7 +71,7 @@ def get_text(img):
     hash_modle = aHash(img_modle)
     n = cmpHash(hash1, hash_modle)
     print('均值哈希算法相似度：' + str(n))
-    if n>5:
+    if n>10:
         return 0
     else:
         return 1

@@ -14,9 +14,7 @@ from pymouse import PyMouse
 import threading
 from tkinter import *
 
-import time
-
-from win32con import *
+from matplotlib import pyplot as plt
 
 import sys, os
 sys.path.append("..")
@@ -101,6 +99,8 @@ def ListenClick():
     hm.HookMouse()
     # 进入循环监听状态
     pythoncom.PumpMessages()
+    #
+    plt.close()
 
 #周智圆 2019.8.25
 #通用转化函数函数
