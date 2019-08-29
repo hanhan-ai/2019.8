@@ -122,7 +122,7 @@ INITIAL_EPSILON = 0.5       # INITIAL RATE OF EXPLORE
 REPLAY_MEMORY = 50000       # NUMBER OF PREVIOUS TRANSITIONS TO REMEMBER
 BATCH = 32                  # SIZE OF MINIBATCH
 FRAME_PER_ACTION = 1        # ONE ACTION, ONE FRAME FORWARD
-
+PICN=160                    #SIZE OF PICTURE
 # /----------------------------------NETWORK PART--------------------------------------------/
 
 
@@ -153,17 +153,17 @@ def max_pool_2x2(x):                                    # set the pooling method
 
 def createNetwork():                                    # ------FINALLY WE CREATE A NETWORK--------
   ## input layer ##
-    #None表示输入图片的数量不定，80*80图片分辨率,通道是4
-    s = tf.placeholder("float", [None, 80, 80, 4])
+    #None表示输入图片的数量不定，PICN*PICN图片分辨率,通道是4
+    s = tf.placeholder("float", [None, PICN, PICN, 4])
 
   ## 第一层卷积操作 ##
     # 第一二参数卷积核尺寸大小，即patch，第三个参数是图像通道数，第四个参数是卷积核的数目，代表会出现多少个卷积特征图像
     w_conv1 = weight_variable([8, 8, 4, 32])
     # 对于每一个卷积核都有一个对应的偏置量。
     b_conv1 = bias_variable([32])
-    # 图片乘以卷积核，并加上偏执量，卷积结果80x80x32
+    # 图片乘以卷积核，并加上偏执量，卷积结果PICN/4 x PICN/4 x32
     h_conv1 = tf.nn.relu(conv2d(s, w_conv1, 4) + b_conv1)
-    # 卷积结果乘以池化卷积核，池化结果40x40x32
+    # 卷积结果乘以池化卷积核，池化结果PICN/8 x PICN/8 x32
     h_pool1 = max_pool_2x2(h_conv1)
 
   ##第二层卷积操作 ##
@@ -171,9 +171,9 @@ def createNetwork():                                    # ------FINALLY WE CREAT
     w_conv2 = weight_variable([4, 4, 32, 64])
     # 64个偏执数据
     b_conv2 = bias_variable([64])
-    # h_pool1是上一层的池化结果，卷积结果40x40x64
+    # h_pool1是上一层的池化结果，卷积结果PICN/16 x PICN/16 x64
     h_conv2 = tf.nn.relu(conv2d(h_pool1, w_conv2, 2) + b_conv2)
-    # 池化结果20x20x64
+    # 池化结果
     # h_pool2 = max_pool_2x2(h_conv2)
 
   ##第三层卷积操作 ##
@@ -181,18 +181,20 @@ def createNetwork():                                    # ------FINALLY WE CREAT
     w_conv3 = weight_variable([3, 3, 64, 64])
     # 64个偏执数据
     b_conv3 = bias_variable([64])
-    #卷积结果40x40x64
+    #卷积结果5x5x64
     h_conv3 = tf.nn.relu(conv2d(h_conv2, w_conv3, 1) + b_conv3)
-    #将第三层卷积结果reshape成只有一行40*40*1个数据
-    h_conv3_flat = tf.reshape(h_conv3, [-1, 1600])
+    #将第三层卷积结果reshape成只有一行PICN/16 x PICN/16 x64个数据
+    h_conv3_flat = tf.reshape(h_conv3, [-1, int(PICN*PICN/4)])
 
   ##第四层全连接操作 ##
-    # 二维张量，第一个参数40*40*1的patch，，第二个参数代表卷积个数共512个
-    w_fc1 = weight_variable([1600, 512])
+    # 二维张量，第一个参数PICN/16 x PICN/16 x64的patch，，第二个参数代表卷积个数共512个
+    w_fc1 = weight_variable([int(PICN*PICN/4), 512])
     # 512个偏执数据
     b_fc1 = bias_variable([512])
     # 卷积操作，结果是1*1*512，单行乘以单列等于1*1矩阵，matmul实现最基本的矩阵相乘
     h_fc1 = tf.nn.relu(tf.matmul(h_conv3_flat, w_fc1) + b_fc1)
+
+  ## 第五层输出操作 ##
     w_fc2 = weight_variable([512, ACTIONS])
     b_fc2 = bias_variable([ACTIONS])
     # network_result layer
@@ -229,7 +231,7 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
     # reward_t, frame_t = game.step(stay)
     # frame_t:input one frame; r_0:reward of first state; terminal:judge game stop or not
 
-    frame_t = cv2.resize(frame_t, (80, 80))
+    frame_t = cv2.resize(frame_t, (PICN, PICN))
     # ret, frame_t = cv2.threshold(frame_t, 1, 255, cv2.THRESH_BINARY)            # ret means nothing
     state_t = np.stack((frame_t, frame_t, frame_t, frame_t), axis=2)            # one whole input batch, 4 frames.
     # x_image_array = np.array(frame_t)
@@ -270,14 +272,14 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
 
         # run the selected action and observe next state and reward
         reward_t, frame_t1 = gc(action_t)    # ----------THE ACTIONS EXECUTED!--------
-        next_frame_t = cv2.resize(frame_t1, (80, 80))
+        next_frame_t = cv2.resize(frame_t1, (PICN, PICN))
         # ret, next_frame_t = cv2.threshold(next_frame_t, 1, 255, cv2.THRESH_BINARY)  #2019.8.27 14:20 mod
 
 
         plt.figimage(next_frame_t)
         plt.savefig("../BikeGame/jietu/" + str(gl.pi) + ".png")                # to save a convoluted image to debug
         gl.pi = gl.pi + 1
-        next_frame_t = np.reshape(next_frame_t, (80, 80, 1))            # unnecessary operation ??? NO,NECESSARY!
+        next_frame_t = np.reshape(next_frame_t, (PICN, PICN, 1))            # unnecessary operation ??? NO,NECESSARY!
         next_state_t = np.append(next_frame_t, state_t[:, :, :3], axis=2)
 
         # count = 1                                                     # to save a reshaped image to debug//failed
