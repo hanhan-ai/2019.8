@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4a7c480d-9711-4817-9d44-41946bbefbff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BikeGame/current.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/BikeGame/current.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BikeGame/finished.py" beforeDir="false" afterPath="$PROJECT_DIR$/BikeGame/finished.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BikeGame/picture_handle.py" beforeDir="false" afterPath="$PROJECT_DIR$/BikeGame/picture_handle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BikeGame/reward_handle.py" beforeDir="false" afterPath="$PROJECT_DIR$/BikeGame/reward_handle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepQNetworkBall/Network.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepQNetworkBall/Network.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Interaction/global_var_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Interaction/global_var_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Interaction/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/Interaction/start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../文档列表/函数文件夹命名.docx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Interaction/start.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
+            <state relative-caret-position="302">
+              <caret line="70" column="29" lean-forward="true" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -361,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567067958697</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="周智圆 2019.8.28 修改结束bug的">
+      <created>1567133325150</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1567133325151</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -374,19 +375,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13615334" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287879" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6815287" visible="true" weight="0.4088319" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6815287" weight="0.4088319" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49954504" weight="0.39601138" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49772522" weight="0.33333334" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.49772522" visible="true" weight="0.33333334" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5022748" side_tool="true" weight="0.3288889" />
       <window_info anchor="bottom" id="Python Console" order="10" />
@@ -467,7 +469,8 @@
     <MESSAGE value="周智圆 2019.8.28 等待更改神经网络的..." />
     <MESSAGE value="周智圆 2019.8.28 加部分注释的" />
     <MESSAGE value="周智圆 2019.8.28 神经网络已注释的" />
-    <option name="LAST_COMMIT_MESSAGE" value="周智圆 2019.8.28 神经网络已注释的" />
+    <MESSAGE value="周智圆 2019.8.28 修改结束bug的" />
+    <option name="LAST_COMMIT_MESSAGE" value="周智圆 2019.8.28 修改结束bug的" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/BikeGame/jietu/908.png">
@@ -656,8 +659,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Interaction/start.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
+        <state relative-caret-position="302">
+          <caret line="70" column="29" lean-forward="true" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
