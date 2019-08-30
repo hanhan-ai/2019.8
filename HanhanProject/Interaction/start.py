@@ -33,26 +33,6 @@ from Interaction import global_var_model as gl
 
 PATH='H:\kk'#截图储存位置
 SCREEN_SHOT_TIME=0.04#截屏间隔时间
-t=None
-
-
-def _async_raise(tid, exctype):
-    """raises the exception, performs cleanup if needed"""
-    tid = ctypes.c_long(tid)
-    if not inspect.isclass(exctype):
-        exctype = type(exctype)
-    res = ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, ctypes.py_object(exctype))
-    if res == 0:
-        raise ValueError("invalid thread id")
-    elif res != 1:
-        # """if it returns a number greater than one, you're in trouble,
-        # and you should call it again with exc=NULL to revert the effect"""
-        ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, None)
-        raise SystemError("PyThreadState_SetAsyncExc failed")
-
-
-def stop_thread(thread):
-    _async_raise(thread.ident, SystemExit)
 
 
 #周智圆 2019.8.27
@@ -69,7 +49,6 @@ def stop_event():
     print("==stop...")
     while True:
         if gl.RELEASE ==True:
-            stop_thread(t)
             sys.exit()
 #周智圆 2019.8.23
 #程序界面函数
