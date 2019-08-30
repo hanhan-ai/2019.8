@@ -56,7 +56,8 @@ def first_window(top):
     print("==============")
     stop_button = Button(top, text="点我终止程序", command=stop_event)
     stop_button.pack()
-from DeepQNetworkBall.Network import *
+
+from DeepQNetwork.Network_2 import *
 
 #周智圆 2019.8.23
 # 鼠标左击事件处理函数
@@ -84,7 +85,7 @@ def StartMouseEvent(event):
         #记录游戏开始时间
         gl.STARTETIME=time.time()
         #模拟游戏输入
-        game_base_action()
+        #game_base_action()
         #开始进行神经网络的循环
         #赵士陆 2019.8.25  20：54
         startNetwork()
