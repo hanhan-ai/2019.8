@@ -1,4 +1,6 @@
 #窗口信息
+import threading
+
 LEFT=0
 RIGHT=0
 TOP=0
@@ -12,3 +14,5 @@ RELEASE=True
 down=0
 up=0
 pi=0
+
+STARTETIME=0#第一次游戏开始时间

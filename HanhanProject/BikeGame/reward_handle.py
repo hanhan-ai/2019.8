@@ -8,7 +8,7 @@ def reward_handle(img):
     lower=int(731/749*(gl.BOTTOM-gl.TOP))
     print(left, upper, right, lower)
     img1 = img.crop((left, upper, right, lower ))  # (left, upper, right, lower)
-    img1.save('../BikeGame/jindutiao.jpg')
+    #img1.save('../BikeGame/jindutiao.jpg')
     x = 0
     y = 0
     width = img1.size[0]  # 长度

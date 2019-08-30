@@ -1,3 +1,6 @@
+import ctypes
+import inspect
+
 import win32gui
 import win32api
 
@@ -13,7 +16,7 @@ from pymouse import PyMouse
 
 import threading
 from tkinter import *
-
+import signal
 
 import sys, os
 sys.path.append("..")
@@ -30,6 +33,27 @@ from Interaction import global_var_model as gl
 
 PATH='H:\kk'#截图储存位置
 SCREEN_SHOT_TIME=0.04#截屏间隔时间
+t=None
+
+
+def _async_raise(tid, exctype):
+    """raises the exception, performs cleanup if needed"""
+    tid = ctypes.c_long(tid)
+    if not inspect.isclass(exctype):
+        exctype = type(exctype)
+    res = ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, ctypes.py_object(exctype))
+    if res == 0:
+        raise ValueError("invalid thread id")
+    elif res != 1:
+        # """if it returns a number greater than one, you're in trouble,
+        # and you should call it again with exc=NULL to revert the effect"""
+        ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, None)
+        raise SystemError("PyThreadState_SetAsyncExc failed")
+
+
+def stop_thread(thread):
+    _async_raise(thread.ident, SystemExit)
+
 
 #周智圆 2019.8.27
 #点击按钮退出程序
@@ -37,13 +61,15 @@ def stop_event():
     print(gl.HANDLE)
     click(10, 20)
     gl.STATE = False
-    time.sleep(1)
+    time.sleep(0.6)
+
     print("finally")
     print('down,up',gl.down,gl.up)
     gl.HANDLE = -1
     print("==stop...")
     while True:
         if gl.RELEASE ==True:
+            stop_thread(t)
             sys.exit()
 #周智圆 2019.8.23
 #程序界面函数
@@ -51,7 +77,6 @@ def first_window(top):
     print("==============")
     stop_button = Button(top, text="点我终止程序", command=stop_event)
     stop_button.pack()
-
 from DeepQNetworkBall.Network import *
 
 #周智圆 2019.8.23
@@ -77,6 +102,8 @@ def StartMouseEvent(event):
         print("游戏窗口",gl.LEFT, gl.TOP, gl.RIGHT, gl.BOTTOM)
         # 取消鼠标钩子
         hm.UnhookMouse()
+        #记录游戏开始时间
+        gl.STARTETIME=time.time()
         #模拟游戏输入
         game_base_action()
         #开始进行神经网络的循环
@@ -147,6 +174,8 @@ if __name__ == "__main__":
     t.setDaemon(True)#设为守护线程
     t.start()
     TOP.mainloop()
+
+
 
 
 

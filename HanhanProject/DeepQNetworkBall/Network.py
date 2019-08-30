@@ -249,7 +249,9 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
     # start training
     epsilon = INITIAL_EPSILON
     t = 0       # times of train
+
     while gl.STATE:
+        print("====",gl.STATE)
         # choose an action epsilon greedily
         result_t = net_result.eval(feed_dict={s: [state_t]})[0]         # the predict output of this time
         # action_t = np.zeros([ACTIONS])                                # the action vector
@@ -340,8 +342,7 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
         print("TIMESTEP", t, "/ STATE", state,
             "/ EPSILON", epsilon, "/ ACTION", action_index, "/ REWARD", end='')
         if reward_t==-1:
-            print('\033[1;31m -1\033[0m'
-, end='')
+            print('\033[1;31m -1\033[0m', end='')
         else:
             print(  reward_t,end='')
         print("/ Q_MAX %e" % np.max(result_t))
@@ -352,11 +353,14 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
         #     h_file.write(",".join([str(x) for x in h_fc1.eval(feed_dict={s:[state_t]})[0]]) + '\n')
         #     cv2.imwrite("logs_tetris/frame" + str(t) + ".png", next_frame_t)
 
+        print("==END==",gl.STATE)
+
 
 def startTrain():
     sess = tf.InteractiveSession()
     s, readout, h_fc1 = createNetwork()
     trainNetwork(s, readout, h_fc1, sess)
+    sess.close()
 
 
 def startNetwork():         # START
