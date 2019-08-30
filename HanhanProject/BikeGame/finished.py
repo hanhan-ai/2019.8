@@ -95,16 +95,21 @@ def get_text(img):
 #周智圆 2019.8.27
 #游戏通关处理
 def game_finished_handle(img):
+    #开始游戏的一分钟内不用判断是否结束
+    if time.time()-gl.STARTETIME < 50:
+        return
     if get_text(img)==1:
-        click(int(495/994*(gl.RIGHT-gl.LEFT)),int(322/746*(gl.BOTTOM-gl.TOP)))
+        click(int(495/994*(gl.RIGHT-gl.LEFT)), int(322/746*(gl.BOTTOM-gl.TOP)))
         time.sleep(1.5)
-        click(int(881/994*(gl.RIGHT-gl.LEFT)),int(698/746*(gl.BOTTOM-gl.TOP)))
+        click(int(881/994*(gl.RIGHT-gl.LEFT)), int(698/746*(gl.BOTTOM-gl.TOP)))
         time.sleep(1.5)
-        click(int(707/994*(gl.RIGHT-gl.LEFT)),int(380/746*(gl.BOTTOM-gl.TOP)))
+        click(int(707/994*(gl.RIGHT-gl.LEFT)), int(380/746*(gl.BOTTOM-gl.TOP)))
         time.sleep(1.5)
         #点击第13关
-        click(int(733/994*(gl.RIGHT-gl.LEFT)),int(322/746*(gl.BOTTOM-gl.TOP)))
+        click(int(733/994*(gl.RIGHT-gl.LEFT)), int(322/746*(gl.BOTTOM-gl.TOP)))
         time.sleep(5)
+        #记录游戏开始时间
+        gl.STARTETIME = time.time()
     else:
         pass
 

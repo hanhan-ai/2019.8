@@ -4,9 +4,11 @@
     <list default="true" id="4a7c480d-9711-4817-9d44-41946bbefbff" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BikeGame/current.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/BikeGame/current.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BikeGame/jietu.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/BikeGame/jietu.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BikeGame/jindutiao.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/BikeGame/jindutiao.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BikeGame/finished.py" beforeDir="false" afterPath="$PROJECT_DIR$/BikeGame/finished.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BikeGame/picture_handle.py" beforeDir="false" afterPath="$PROJECT_DIR$/BikeGame/picture_handle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BikeGame/reward_handle.py" beforeDir="false" afterPath="$PROJECT_DIR$/BikeGame/reward_handle.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DeepQNetworkBall/Network.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepQNetworkBall/Network.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Interaction/global_var_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Interaction/global_var_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Interaction/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/Interaction/start.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DeepQNetworkBall/Network.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="165" column="41" lean-forward="true" selection-start-line="165" selection-start-column="41" selection-end-line="165" selection-end-column="41" />
+            <state relative-caret-position="399">
+              <caret line="346" column="36" lean-forward="true" selection-start-line="346" selection-start-column="36" selection-end-line="346" selection-end-column="36" />
               <folding>
                 <element signature="e#136#154#0" expanded="true" />
               </folding>
@@ -30,48 +32,76 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BikeGame/jietu/24.png">
+        <entry file="file://F:/Program Files/Python37/Lib/tkinter/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4555">
+              <caret line="774" selection-start-line="774" selection-end-line="774" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Interaction/start.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Interaction/keyboard_forgame.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Interaction/global_var_model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BikeGame/base_action.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BikeGame/jietu.jpg">
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BikeGame/jietu/25.png">
+        <entry file="file://$PROJECT_DIR$/BikeGame/jindutiao.jpg">
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BikeGame/jietu/57.png">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/BikeGame/picture_handle.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BikeGame/jietu/55.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BikeGame/jietu/35.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BikeGame/jietu/3.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BikeGame/jietu/60.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BikeGame/jietu/59.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BikeGame/jietu/58.png">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/BikeGame/reward_handle.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -96,22 +126,23 @@
         <option value="$PROJECT_DIR$/BikeGame/get_text.py" />
         <option value="$PROJECT_DIR$/Interaction/my_keyboard.py" />
         <option value="H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/pytesseract/pytesseract.py" />
-        <option value="$PROJECT_DIR$/BikeGame/reward_handle.py" />
         <option value="$PROJECT_DIR$/BikeGame/ai_action.py" />
         <option value="$PROJECT_DIR$/Interaction/keyboard_forgame.py" />
-        <option value="$PROJECT_DIR$/Interaction/global_var_model.py" />
         <option value="$PROJECT_DIR$/BikeGame/base_action.py" />
-        <option value="$PROJECT_DIR$/BikeGame/finished.py" />
         <option value="$PROJECT_DIR$/Interaction/test.py" />
+        <option value="$PROJECT_DIR$/BikeGame/reward_handle.py" />
         <option value="$PROJECT_DIR$/BikeGame/picture_handle.py" />
-        <option value="$PROJECT_DIR$/Interaction/start.py" />
+        <option value="$PROJECT_DIR$/BikeGame/finished.py" />
+        <option value="$PROJECT_DIR$/Interaction/global_var_model.py" />
         <option value="$PROJECT_DIR$/DeepQNetworkBall/Network.py" />
+        <option value="$PROJECT_DIR$/Interaction/start.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="93" />
-    <option name="width" value="1519" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-48" />
+    <option name="y" value="21" />
+    <option name="width" value="1365" />
     <option name="height" value="995" />
   </component>
   <component name="ProjectId" id="1Ptb7H56vlRu2DHvOkqHEQsMi7c" />
@@ -168,8 +199,8 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="H:/python program" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -323,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567064130592</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="周智圆 2019.8.28 神经网络已注释的">
+      <created>1567067958697</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1567067958697</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -336,16 +374,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="0" width="1215" height="796" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17487267" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13615334" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287879" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6815287" visible="true" weight="0.45606062" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49954504" weight="0.3969697" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6815287" visible="true" weight="0.4088319" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49954504" weight="0.39601138" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -359,17 +396,17 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15135492" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.13615334" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287879" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6815287" weight="0.45726496" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6815287" visible="true" weight="0.35612535" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49954504" weight="0.3969697" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49772522" visible="true" weight="0.33333334" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49772522" weight="0.33333334" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5022748" side_tool="true" weight="0.3288889" />
       <window_info anchor="bottom" id="Python Console" order="10" />
@@ -429,59 +466,125 @@
     <MESSAGE value="周智圆 2019.8.28" />
     <MESSAGE value="周智圆 2019.8.28 等待更改神经网络的..." />
     <MESSAGE value="周智圆 2019.8.28 加部分注释的" />
-    <option name="LAST_COMMIT_MESSAGE" value="周智圆 2019.8.28 加部分注释的" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DeepQNetworkBall/Network.py</url>
-          <line>273</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DeepQNetworkBall/Network.py</url>
-          <line>186</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="周智圆 2019.8.28 神经网络已注释的" />
+    <option name="LAST_COMMIT_MESSAGE" value="周智圆 2019.8.28 神经网络已注释的" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/695.png">
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/908.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/continue.jpg">
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/877.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/collections/__init__.pyi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="191" column="8" selection-start-line="191" selection-start-column="8" selection-end-line="191" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/reward_handle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="39" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jindutiao.jpg">
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/864.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/picture_handle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/810.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/26.png">
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/812.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/814.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/816.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/817.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/819.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/820.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/821.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/823.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/825.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/826.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/828.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/829.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/831.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/830.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/827.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/824.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/808.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/846.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/5092.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/5089.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/5080.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/5069.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/5058.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/5046.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/5035.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/4969.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/4968.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/365.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/366.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/367.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/369.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/371.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/372.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/376.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/5005.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/BikeGame/current.jpg">
@@ -489,181 +592,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BikeGame/finished.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="73" column="11" selection-start-line="73" selection-start-column="11" selection-end-line="73" selection-end-column="11" />
+        <state>
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu0.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/BikeGame/jietu.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/PyHook3/HookManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="324" selection-start-line="324" selection-end-line="324" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/BikeGame/jindutiao.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/tensorflow/python/client/session.py">
+    <entry file="file://$PROJECT_DIR$/BikeGame/picture_handle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="949" selection-start-line="949" selection-end-line="949" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Interaction/start.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        <state>
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/tensorflow/python/framework/ops.py">
+    <entry file="file://$PROJECT_DIR$/BikeGame/reward_handle.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Interaction/keyboard_forgame.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://F:/Program Files/Python37/Lib/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="3615" selection-start-line="3615" selection-end-line="3615" />
+        <state relative-caret-position="4555">
+          <caret line="774" selection-start-line="774" selection-end-line="774" />
         </state>
       </provider>
     </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/tensorflow/python/util/deprecation.py">
+    <entry file="file://$PROJECT_DIR$/Interaction/global_var_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="506" selection-start-line="506" selection-end-line="506" />
+        <state relative-caret-position="323">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/tensorflow/python/ops/gen_array_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="7399" selection-start-line="7399" selection-end-line="7399" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/Program Files/Python37/Lib/threading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="884" selection-start-line="884" selection-end-line="884" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/tensorflow/python/framework/op_def_library.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="625" selection-start-line="625" selection-end-line="625" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/0.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/4.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/5.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/6.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/7.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/8.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/9.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/10.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/11.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/12.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/13.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/14.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/15.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/16.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/17.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/18.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/20.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/21.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/22.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/23.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/24.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/25.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/60.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/59.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/58.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/57.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/55.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/35.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/3.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/DeepQNetworkBall/Network.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="165" column="41" lean-forward="true" selection-start-line="165" selection-start-column="41" selection-end-line="165" selection-end-column="41" />
+        <state relative-caret-position="399">
+          <caret line="346" column="36" lean-forward="true" selection-start-line="346" selection-start-column="36" selection-end-line="346" selection-end-column="36" />
           <folding>
             <element signature="e#136#154#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BikeGame/base_action.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Interaction/start.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

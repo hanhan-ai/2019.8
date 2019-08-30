@@ -32,7 +32,6 @@ def pic_change(img):
             #if (data[0] <= 30 and data[1] <= 30 and data[2] <= 30):  # RGBA的r值大于170，并且g值大于170,并且b值大于170
             #   img.putpixel((i, j), (255, 255, 255, 255))  #
     img = img.convert("L")
-    img.save('../BikeGame/jietu0.jpg')
     img = img.convert("RGB")
 
     width = img.size[0]  # 长度
@@ -45,7 +44,7 @@ def pic_change(img):
                 img.putpixel((i, j - 1), (0, 0, 0, 255))  #
                 img.putpixel((i, j - 2), (0, 0, 0, 255))  # img = img.convert("L")
     img = img.convert("L")
-    img.save('../BikeGame/jietu.jpg')
+    #img.save('../BikeGame/jietu.jpg')
     x,y=img.size
     img=img.crop((0, 0,x,y ))
     imgnp = np.array(img)
