@@ -15,4 +15,7 @@ down=0
 up=0
 pi=0
 
-STARTETIME=0#第一次游戏开始时间
+#第一次游戏开始时间
+STARTETIME=0
+#游戏类型
+GAME=0
