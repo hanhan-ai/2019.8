@@ -125,7 +125,6 @@ REPLAY_MEMORY = 50000                       # NUMBER OF PREVIOUS TRANSITIONS TO 
 BATCH = 32                                  # SIZE OF MINIBATCH
 FRAME_PER_ACTION = 1                        # ONE ACTION, ONE FRAME FORWARD
 PICN=160                                    #SIZE OF PICTURE
-GAME = 'SpaceInvaders-v0'
 # /----------------------------------NETWORK PART--------------------------------------------/
 
 
@@ -216,10 +215,10 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
 
     # import the game invironment
     # game = Game()
-    if GAME == 'SpaceInvaders-v0':
+    if gl.GAME == 'SpaceInvaders-v0':
         env = gym.make('SpaceInvaders-v0')   # mod by zsl 2019.8.30  18:54
         ob = env.reset()
-    if GAME == 'Bike':
+    if gl.GAME == 'Bike':
         pass
 
     # Game never over
@@ -235,9 +234,9 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
     stay = np.zeros([ACTIONS])
     stay[STAYACTION] = 1
     # get the first state by doing nothing and preprocess the image to 80x80x4
-    if GAME == 'Bike':
+    if gl.GAME == 'Bike':
         reward_t, frame_t = gc(stay)  # do nothing
-    elif GAME == 'SpaceInvaders-v0':
+    elif gl.GAME == 'SpaceInvaders-v0':
         # image_size = (PICN, PICN, 1)
         ob, reward, done, info = env.step(CPHD.CartPoleActionHandle(stay))
         reward_t = reward
@@ -267,7 +266,7 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
 
     while gl.STATE:
 
-        if GAME == 'SpaceInvaders-v0':
+        if gl.GAME == 'SpaceInvaders-v0':
             env.render()
 
         print("====",gl.STATE)
@@ -292,9 +291,9 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
             epsilon -= (INITIAL_EPSILON - FINAL_EPSILON) / EXPLORE
 
         # run the selected action and observe next state and reward
-        if GAME == 'Bike':
+        if gl.GAME == 'Bike':
             reward_t, frame_t1 = gc(action_t)    # ----------THE ACTIONS EXECUTED!--------
-        elif GAME == 'SpaceInvaders-v0':
+        elif gl.GAME == 'SpaceInvaders-v0':
             image_size = (PICN, PICN, 1)
             ob, reward, done, info = env.step(CPHD.CartPoleActionHandle(action_t))
             reward_t = reward

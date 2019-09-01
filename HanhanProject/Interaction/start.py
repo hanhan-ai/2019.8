@@ -85,7 +85,7 @@ def StartMouseEvent(event):
         #记录游戏开始时间
         gl.STARTETIME=time.time()
         #模拟游戏输入
-        #game_base_action()
+        game_base_action()
         #开始进行神经网络的循环
         #赵士陆 2019.8.25  20：54
         startNetwork()
@@ -145,14 +145,28 @@ def screen_shot(x,y,w,h,path):
 '''
 
 #周智圆 2019.8.23
+#自行车游戏按钮函数
+def bike_event():
+    gl.GAME='Bike'
+    t = threading.Thread(target=ListenClick, )
+    t.setDaemon(True)  # 设为守护线程
+    t.start()
+
+#周智圆 2019.8.23
+#打飞机游戏按钮函数
+def airplane_event():
+    gl.GAME='SpaceInvaders-v0'
+    startNetwork()
+#周智圆 2019.8.23
 #main函数
 if __name__ == "__main__":
     TOP=Tk()
+    bike_button=Button(TOP, text="自行车游戏", command=bike_event)
+    airplane_button = Button(TOP, text="打飞机游戏", command=airplane_event)
     stop_button = Button(TOP, text="点我终止程序", command=stop_event)
+    bike_button.pack()
+    airplane_button.pack()
     stop_button.pack()
-    t=threading.Thread(target=ListenClick,)
-    t.setDaemon(True)#设为守护线程
-    t.start()
     TOP.mainloop()
 
 
