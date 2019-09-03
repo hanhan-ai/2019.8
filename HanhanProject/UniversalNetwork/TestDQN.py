@@ -13,11 +13,13 @@ import time
 
 import os
 
-# 可用的测试模型游戏
-# 临时测试，reward处理未必最优，大概率需要修改，后续还有更多可用模型
+# # 根据不严谨预测，此网页 http://gym.openai.com/envs/#atari 上所以名称中无ram的模型游戏都可以运行
+# # 但是各个模型reward所需要的处理大概率不一致，还未修改
+
 # env = gym.make('SpaceInvaders-v0')
 # env = gym.make('BreakoutDeterministic-v4')
 env = gym.make('Assault-v0')
+# env = gym.make('Alien-v0')
 env = env.unwrapped
 
 
