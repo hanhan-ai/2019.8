@@ -140,9 +140,8 @@ class UDQN:
             MaxPooling2D(5, 5, 'same', data_format='channels_first'),
             # (10, 8, 30)
             Flatten(),
-            Dense(512),
-            Activation('relu'),
-            Dense(self.n_actions),
+            Dense(512, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
+            Dense(self.n_actions, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
         ])
 
 
@@ -201,9 +200,8 @@ class UDQN:
             MaxPooling2D(5, 5, 'same', data_format='channels_first'),
             # 21 * 16 * 60 = 20160
             Flatten(),
-            Dense(512),
-            Activation('relu'),
-            Dense(self.n_actions),
+            Dense(512, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
+            Dense(self.n_actions, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
         ])
 
     def store_transition(self, s, a, r, s_):
