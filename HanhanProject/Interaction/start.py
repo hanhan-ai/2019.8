@@ -38,18 +38,21 @@ SCREEN_SHOT_TIME=0.04#截屏间隔时间
 #周智圆 2019.8.27
 #点击按钮退出程序
 def stop_event():
-    print(gl.HANDLE)
-    click(10, 20)
-    gl.STATE = False
-    time.sleep(0.6)
+    if gl.GAME=='SpaceInvaders-v0':
+        sys.exit()
+    elif gl.GAME=='Bike':
+        print(gl.HANDLE)
+        click(10, 20)
+        gl.STATE = False
+        time.sleep(0.6)
 
-    print("finally")
-    print('down,up',gl.down,gl.up)
-    gl.HANDLE = -1
-    print("==stop...")
-    while True:
-        if gl.RELEASE ==True:
-            sys.exit()
+        print("finally")
+        print('down,up', gl.down, gl.up)
+        gl.HANDLE = -1
+        print("==stop...")
+        while True:
+            if gl.RELEASE == True:
+                sys.exit()
 #周智圆 2019.8.23
 #程序界面函数
 def first_window(top):

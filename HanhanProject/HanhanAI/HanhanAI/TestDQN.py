@@ -5,7 +5,7 @@ Deep Q network,
 
 import os
 import gym
-from universal_DQN import UDQN, myThread
+from UniversalNetwork.universal_DQN import UDQN, myThread
 import cv2
 import numpy as np
 import time
@@ -18,8 +18,9 @@ import os
 
 # env = gym.make('SpaceInvaders-v0')
 # env = gym.make('BreakoutDeterministic-v4')
-env = gym.make('Assault-v0')
+#env = gym.make('Assault-v0')
 # env = gym.make('Alien-v0')
+env=gym.make('MsPacman-v0')
 env = env.unwrapped
 
 
@@ -76,7 +77,7 @@ for i_episode in range(100):
         action = RL.choose_action(observation)
 
         observation_, reward, done, info = env.step(action)
-
+        print(reward)
         # # 给reward做归一化处理
         # end = time.time()
         # #print(end - start)
@@ -112,7 +113,7 @@ for i_episode in range(100):
         # 给reward做处理
         if reward > 0:
             reward = 1
-        elif reward < 0:
+        elif reward < 0 :
             reward = -1
 
         # 使用opencv做灰度化处理

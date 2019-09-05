@@ -3,8 +3,7 @@ Deep Q network,
 
 """
 
-import os
-import gym
+
 from Final_UDQN import UDQN, init_model,init_UDQN
 import cv2
 import numpy as np
@@ -62,6 +61,9 @@ env = init_model('MsPacman-v0')
 #
 # init_UDQN参数列表env, inputImageSize, choose_optimizers ,lr, rho, beta_1, beta_2, decay, amsgrad, schedule_decay
 # ,0.95,0.0,0.0,1e-6,False,0.0
+
+
+
 RL = init_UDQN(env,(100, 80, 1),'Adadelta',1.0)
 
 for i_episode in range(10):

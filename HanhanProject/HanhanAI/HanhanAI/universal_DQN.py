@@ -84,11 +84,12 @@ class UDQN:
         self._build_net()
 
         # print("1")
+        '''
         if output_graph:
             print("输出图像")
             plot_model(self.model_eval, to_file='model1.png')
             plot_model(self.model_target, to_file='model2.png')
-
+        '''
         # 记录cost然后画出来
         self.cost_his = []
         self.reward = []
