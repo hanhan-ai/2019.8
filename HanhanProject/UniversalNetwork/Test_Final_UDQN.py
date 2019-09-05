@@ -5,7 +5,7 @@ Deep Q network,
 
 import os
 import gym
-from universal_DQN import UDQN, init_model,init_UDQN
+from Final_UDQN import UDQN, init_model,init_UDQN
 import cv2
 import numpy as np
 import time
