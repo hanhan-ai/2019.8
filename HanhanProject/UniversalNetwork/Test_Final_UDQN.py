@@ -5,7 +5,7 @@ Deep Q network,
 
 import os
 import gym
-from universal_DQN import UDQN, myThread, init_model,init_UDQN
+from universal_DQN import UDQN, init_model,init_UDQN
 import cv2
 import numpy as np
 import time
@@ -44,20 +44,20 @@ import os
 # thread1.start()
 # total_reward_list = []
 
-env = init_model('SpaceInvaders-v0')
-# env = init_model('MsPacman-ram-v0')
+# env = init_model('SpaceInvaders-v0')
+env = init_model('MsPacman-v0')
 # print('env    ',type(env))
 # print(env)
 # print('env.action_space',env.action_space)
 # print('env.observation_space.shape[0]',env.observation_space.shape[0])
 
-# 选择adadelta优化器，输入学习率参数
+# 选择Adadelta优化器，输入学习率参数
 # lr=1.0, rho=0.95, epsilon=None, decay=0.0
-# 选择rms优化器，输入学习率参数
+# 选择RMSprop优化器，输入学习率参数
 # lr=0.001, rho=0.9, epsilon=None, decay=0.0
-# 选择adam优化器，输入学习率参数
+# 选择Adam优化器，输入学习率参数
 # lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False
-# 选择nadam优化器，输入学习率参数
+# 选择Nadam优化器，输入学习率参数
 # lr=0.002, beta_1=0.9, beta_2=0.999, epsilon=None, schedule_decay=0.004
 #
 # init_UDQN参数列表env, inputImageSize, choose_optimizers ,lr, rho, beta_1, beta_2, decay, amsgrad, schedule_decay
@@ -67,7 +67,7 @@ RL = init_UDQN(env,(100, 80, 1),'Adadelta',1.0)
 for i_episode in range(10):
 
     # run()参数列表env, inputImageSize, total_steps, total_reward_list, i_episode
-    RL.run(env,(100,80,1),0,[],i_episode)
+    RL.run(env,(100,80,1),0,[],i_episode,1)
 
     # #  重置游戏
     # observation = env.reset()
