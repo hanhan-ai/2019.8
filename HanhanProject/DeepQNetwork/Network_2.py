@@ -17,7 +17,7 @@ import gym
 # import pygame
 from collections import *
 import BikeGame.ai_action as ai_act
-from Interaction.start import game_convertion as gc
+# from Interaction.start import game_convertion as gc
 # import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
 from Interaction import global_var_model as gl
