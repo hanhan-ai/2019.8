@@ -5,10 +5,6 @@ from keras.models import Sequential
 from keras.layers import LSTM, TimeDistributed, Dense, Activation,Convolution2D, MaxPooling2D, Flatten
 # 选择优化器
 from keras.optimizers import Adam, RMSprop, Adadelta, Nadam
-# 画图
-from keras.utils import plot_model
-import threading
-import time
 # 调用实例
 #
 # 声明
@@ -30,7 +26,7 @@ import time
 #         RL.store_transition(observation, action, reward, observation_)
 #         根据结果判断是否break跳出循环
 #
-#     如不考虑精确度，可以用run函数替代while循环直接运行
+#     如不考虑精确度，可以用run函数替代for循环直接运行
 
 
 class UDQN:
@@ -51,13 +47,6 @@ class UDQN:
             first_layer_neurno=4,
             second_layer_neurno=1,
             choose_optimizers=' ',
-            # my_rho = 0.0,
-            # my_beta_1 = 0.0,
-            # my_beta_2 = 0.0,
-            # epsilon = None,
-            # my_decay = 0.0,
-            # my_amsgrad = False,
-            # my_schedule_decay = 0.0
     ):
         self.n_actions = n_actions
         self.n_features = n_features
@@ -73,13 +62,6 @@ class UDQN:
         self.first_layer_neurno = first_layer_neurno
         self.second_layer_neurno = second_layer_neurno
         self.choose_optimizers = choose_optimizers
-        # self.my_rho = my_rho,
-        # self.my_beta_1 = my_beta_1,
-        # self.my_beta_2 = my_beta_2,
-        # self.epsilon = epsilon,
-        # self.my_decay = my_decay,
-        # self.my_amsgrad = my_amsgrad,
-        # self.my_schedule_decay = my_schedule_decay
 
         # total learning step
         self.learn_step_counter = 0
@@ -91,22 +73,13 @@ class UDQN:
                                                self.observation_shape[1], self.observation_shape[2]), dtype='int16')
         self.memoryReward = np.zeros(self.memory_size, dtype='float64')
         self.memoryAction = np.zeros(self.memory_size, dtype='int16')
-
         self._build_net()
-
-        # if output_graph:
-        #     print("输出图像")
-        #     plot_model(self.model_eval, to_file='model1.png')
-        #     plot_model(self.model_target, to_file='model2.png')
 
         # 记录cost然后画出来
         self.cost_his = []
         self.reward = []
 
     def _build_net(self):
-
-        # print('_build_net()调用')
-
         # ------------------ 建造估计层 ------------------
         # 因为神经网络在这个地方只是用来输出不同动作对应的Q值，最后的决策是用Q表的选择来做的
         # 所以其实这里的神经网络可以看做是一个线性的，也就是通过不同的输入有不同的输出，而不是确定类别的几个输出
@@ -204,9 +177,6 @@ class UDQN:
         ])
 
     def store_transition(self, s, a, r, s_):
-
-        # print('store_transition()调用')
-
         # hasattr(object, name),对象有该属性返回 True,否则返回 False。
         if not hasattr(self, 'memory_counter'):
             self.memory_counter = 0
@@ -223,23 +193,17 @@ class UDQN:
         self.memory_counter += 1
 
     def choose_action(self, observation):
-
-        # print('choose_action()调用')
-
         # 插入一个新的维度 矩阵运算时需要新的维度来运算
         observation = observation[np.newaxis, :, :, np.newaxis]
-
 
         if np.random.uniform() < self.epsilon:
             # 向前反馈，得到每一个当前状态每一个action的Q值
             # 这里使用估计网络，也就是要更新参数的网络
             # 然后选择最大值,这里的action是需要执行的action
-            # print(observation)
             actions_value = self.model_eval.predict(observation)
             action = np.argmax(actions_value)
         else:
             action = np.random.randint(0, self.n_actions)
-            # print(action)
         return action
 
     def learn(self):
@@ -247,7 +211,6 @@ class UDQN:
         # 经过一定的步数来做参数替换
         if self.learn_step_counter % self.replace_target_iter == 0:
             self.model_target.set_weights(self.model_eval.get_weights())
-            # print('\ntarget_params_replaced\n')
 
         # 随机取出记忆
         if self.memory_counter > self.memory_size:
@@ -286,12 +249,9 @@ class UDQN:
         # self.epsilon + self.epsilon_increment 或者 self.epsilon_max
         self.epsilon = self.epsilon + self.epsilon_increment if self.epsilon < self.epsilon_max else self.epsilon_max
         self.learn_step_counter += 1
-        # print(self.epsilon)
 
     def plot_cost(self):
         import matplotlib.pyplot as plt
-        # print('len(self.cost_his)  1  ', len(self.cost_his))
-        # print('self.cost_his       2  ', self.cost_his)
         plt.plot(np.arange(len(self.cost_his)), self.cost_his)
         plt.ylabel('Cost')
         plt.xlabel('training steps')
@@ -310,11 +270,8 @@ class UDQN:
             observation = cv2.resize(observation, (inputImageSize[1], inputImageSize[0]))
 
             total_reward = 0
-            # start = time.time()
-            # total_time = 0
 
             while True:
-
                 # 重新绘制一帧
                 env.render()
 
@@ -324,12 +281,6 @@ class UDQN:
                 # done          游戏是否结束
                 # info          用于调试
                 observation_, reward, done, info = env.step(action)
-
-                # # 给reward做处理,BreakoutDeterministic-v4使用
-                # if reward > 0:
-                #     reward = 1
-                # elif reward < 0:
-                #     reward = -1
 
                 # 用于MsPacman-v0模型，未必最优
                 reward = reward / 10
@@ -356,7 +307,9 @@ class UDQN:
 # 用于gym模型游戏
 def init_model(model_name):
     import gym
-    env = gym.make(model_name)
+    model_list = model_name.split('-')
+    string = model_list[0] + '-' + model_list[model_list.__len__() - 1]
+    env = gym.make(string)
     env = env.unwrapped
     return env
 
@@ -367,7 +320,6 @@ def init_model(model_name):
 #    Adadelta            1.0
 #      Nadam            0.002
 # 建议优化器使用默认学习率参数，可更改
-#, rho, beta_1, beta_2, decay, amsgrad, schedule_decay
 def init_UDQN(env, inputImageSize, choose_optimizers, lr):
     # lr = 1.0, rho = 0.95, epsilon = None, decay = 0.0
     # lr = 0.001, beta_1 = 0.9, beta_2 = 0.999, epsilon = None, decay = 0.0, amsgrad = False
