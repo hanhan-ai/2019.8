@@ -160,14 +160,22 @@ def bike_event():
 def airplane_event():
     gl.GAME='SpaceInvaders-v0'
     startNetwork()
+
+# zsl 2019.9.3 16:01
+def pacman_event():
+    gl.GAME = 'PacMan'
+    startNetwork()
+
 #周智圆 2019.8.23
 #main函数
 if __name__ == "__main__":
     TOP=Tk()
     bike_button=Button(TOP, text="自行车游戏", command=bike_event)
     airplane_button = Button(TOP, text="打飞机游戏", command=airplane_event)
+    pacman_button = Button(TOP, text="吃豆人游戏", command=pacman_event)
     stop_button = Button(TOP, text="点我终止程序", command=stop_event)
     bike_button.pack()
+    pacman_button.pack()
     airplane_button.pack()
     stop_button.pack()
     TOP.mainloop()

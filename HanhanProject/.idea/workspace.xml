@@ -2,12 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a7c480d-9711-4817-9d44-41946bbefbff" name="Default Changelist" comment="周智圆 2019.8.30 云服务器虚拟机信息更新">
+      <change afterPath="$PROJECT_DIR$/DeepQNetwork/DebugResearch.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GApart/Brain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GApart/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/Handle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/game.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/gameAPI/font/ALGER.TTF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/gameAPI/images/Blinky.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/gameAPI/images/Clyde.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/gameAPI/images/Inky.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/gameAPI/images/Pinky.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/gameAPI/images/pacman.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/gameAPI/images/scared.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/layouts/capsuleClassic.lay" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/layouts/contestClassic.lay" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/layouts/mediumClassic.lay" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/layouts/mediumGrid.lay" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/layouts/minimaxClassic.lay" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/layouts/openClassic.lay" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/layouts/originalClassic.lay" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/layouts/smallClassic.lay" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/layouts/smallGrid.lay" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/layouts/testClassic.lay" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/layouts/trappedClassic.lay" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/layouts/trickyClassic.lay" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PacMan/sprites.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unittest/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unittest/test_Final_UDQN.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/HanhanProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HanhanProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepQNetwork/Network.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DeepQNetwork/Network_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepQNetwork/Network_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Interaction/global_var_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Interaction/global_var_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepQNetwork/VectorEqualsResearch.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Interaction/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/Interaction/start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniversalDeepQNetwork/model1.png" beforeDir="false" afterPath="$PROJECT_DIR$/UniversalDeepQNetwork/model1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniversalDeepQNetwork/model2.png" beforeDir="false" afterPath="$PROJECT_DIR$/UniversalDeepQNetwork/model2.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,86 +49,47 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Interaction/start.py">
+        <entry file="file://$PROJECT_DIR$/DeepQNetwork/DebugResearch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/atari_py/atari_roms/space_invaders.bin">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/gym/envs/atari/atari_env.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="544" selection-start-line="544" selection-end-line="544" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/tensorflow/python/framework/dtypes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9633">
-              <caret line="516" selection-start-line="516" selection-end-line="516" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/gym/envs/atari/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://F:/Program Files/Python37/Lib/importlib/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2375">
-              <caret line="126" selection-start-line="126" selection-end-line="126" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/gym/envs/registration.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2869">
-              <caret line="155" selection-start-line="155" selection-end-line="155" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/DeepQNetwork/Network_2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="218" column="34" selection-start-line="218" selection-start-column="34" selection-end-line="218" selection-end-column="34" />
+            <state relative-caret-position="102">
+              <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
               <folding>
-                <element signature="e#136#154#0" expanded="true" />
-                <element signature="e#496#4422#1" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Interaction/start.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeepQNetwork/Network_2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2686">
+              <caret line="256" column="24" selection-start-line="256" selection-start-column="24" selection-end-line="256" selection-end-column="24" />
+              <folding>
+                <element signature="e#136#154#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GApart/Brain.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Interaction/global_var_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
+            <state relative-caret-position="340">
               <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
             </state>
           </provider>
@@ -134,14 +126,15 @@
         <option value="$PROJECT_DIR$/BikeGame/finished.py" />
         <option value="$PROJECT_DIR$/DeepQNetworkBall/Network.py" />
         <option value="$PROJECT_DIR$/Interaction/global_var_model.py" />
-        <option value="$PROJECT_DIR$/DeepQNetwork/Network_2.py" />
         <option value="$PROJECT_DIR$/Interaction/start.py" />
+        <option value="$PROJECT_DIR$/DeepQNetwork/Network_2.py" />
+        <option value="$PROJECT_DIR$/GApart/Brain.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="451" />
-    <option name="y" value="36" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="450" />
+    <option name="y" value="35" />
     <option name="width" value="1365" />
     <option name="height" value="995" />
   </component>
@@ -162,40 +155,12 @@
             <path>
               <item name="HanhanProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="HanhanProject" type="462c0819:PsiDirectoryNode" />
-              <item name="BikeGame" type="462c0819:PsiDirectoryNode" />
+              <item name="GApart" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HanhanProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="HanhanProject" type="462c0819:PsiDirectoryNode" />
-              <item name="DeepQNetwork" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HanhanProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HanhanProject" type="462c0819:PsiDirectoryNode" />
-              <item name="DeepQNetworkBall" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HanhanProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HanhanProject" type="462c0819:PsiDirectoryNode" />
-              <item name="Interaction" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HanhanProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HanhanProject" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HanhanProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HanhanProject" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HanhanProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HanhanProject" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="UniversalNetwork" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -207,7 +172,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/atari_py/atari_roms" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PythonProject/MyDeepQNetwork" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -366,9 +331,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="361" y="29" width="1092" height="796" extended-state="1" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2635071" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19521913" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -380,7 +346,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4970258" weight="0.33190882" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.0985782" side_tool="true" visible="true" weight="0.40757576" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.0985782" side_tool="true" visible="true" weight="0.097058825" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -463,21 +429,7 @@
     <MESSAGE value="周智圆 2019.8.30" />
     <option name="LAST_COMMIT_MESSAGE" value="周智圆 2019.8.30" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/DeepQNetwork/Network_2.py</url>
-          <line>218</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/821.png" />
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/823.png" />
-    <entry file="file://$PROJECT_DIR$/BikeGame/jietu/825.png" />
     <entry file="file://$PROJECT_DIR$/BikeGame/jietu/826.png" />
     <entry file="file://$PROJECT_DIR$/BikeGame/jietu/828.png" />
     <entry file="file://$PROJECT_DIR$/BikeGame/jietu/829.png" />
@@ -517,16 +469,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DeepQNetworkBall/Network.py" />
-    <entry file="file://F:/Program Files/Python37/Lib/tkinter/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14649">
-          <caret line="774" selection-start-line="774" selection-end-line="774" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DeepQNetwork/Network.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://F:/Program Files/Python37/Lib/tkinter/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/DeepQNetwork/Network.py" />
     <entry file="file://$PROJECT_DIR$/Interaction/keyboard_forgame.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -567,71 +511,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/gym/envs/atari/atari_env.py">
+    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/gym/envs/atari/atari_env.py" />
+    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/tensorflow/python/framework/dtypes.py" />
+    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/gym/envs/atari/__init__.py" />
+    <entry file="file://F:/Program Files/Python37/Lib/importlib/__init__.py" />
+    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/gym/envs/registration.py" />
+    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/atari_py/atari_roms/space_invaders.bin" />
+    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py" />
+    <entry file="file://$PROJECT_DIR$/UniversalNetwork/Final_UDQN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        <state relative-caret-position="2635">
+          <caret line="165" column="32" selection-start-line="165" selection-start-column="32" selection-end-line="165" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/tensorflow/python/framework/dtypes.py">
+    <entry file="file://$PROJECT_DIR$/Interaction/start.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9633">
-          <caret line="516" selection-start-line="516" selection-end-line="516" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/gym/envs/atari/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://F:/Program Files/Python37/Lib/importlib/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2375">
-          <caret line="126" selection-start-line="126" selection-end-line="126" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/gym/envs/registration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2869">
-          <caret line="155" selection-start-line="155" selection-end-line="155" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Interaction/global_var_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
+        <state relative-caret-position="340">
           <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/atari_py/atari_roms/space_invaders.bin">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Interaction/start.py">
+    <entry file="file://$PROJECT_DIR$/DeepQNetwork/DebugResearch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://H:/课程/2019实训/Python学习/练习/studywindow/venv/Lib/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="544" selection-start-line="544" selection-end-line="544" />
+        <state relative-caret-position="102">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DeepQNetwork/Network_2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="218" column="34" selection-start-line="218" selection-start-column="34" selection-end-line="218" selection-end-column="34" />
+        <state relative-caret-position="-2686">
+          <caret line="256" column="24" selection-start-line="256" selection-start-column="24" selection-end-line="256" selection-end-column="24" />
           <folding>
             <element signature="e#136#154#0" expanded="true" />
-            <element signature="e#496#4422#1" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GApart/Brain.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">

@@ -22,6 +22,9 @@ from Interaction.start import game_convertion as gc
 import matplotlib.pyplot as plt
 from Interaction import global_var_model as gl
 import CartPoleHandle.Handle as CPHD
+import PacMan.Handle as PMHD
+import PacMan.game as PMGM
+import PacMan.config as PMCF
 
 """
 # Define basic parameters of the simple test game
@@ -114,8 +117,8 @@ class Game (object):                                                # Create a g
 """
 
 # Define the basic parameters of the DeepQNetwork
-ACTIONS = 6                                 # NUMBER OF VALID ACTIONS
-STAYACTION = CPHD.stay_action               # NUMBER OF STAY ACTION IN ACTION VECTOR
+ACTIONS = PMHD.action_number                # NUMBER OF VALID ACTIONS
+STAYACTION = 1                              # NUMBER OF STAY ACTION IN ACTION VECTOR
 GAMMA = 0.95                                # DECAY RATE OF PAST OBSERVATIONS
 OBSERVE = 100000                            # TIME OF STEPS TO OBSERVE BEFORE TRAINING
 EXPLORE = 2000000                           # FRAMES OVER WHICH TO ANNEAL EPSILON
@@ -154,55 +157,72 @@ def max_pool_2x2(x):                                    # set the pooling method
 
 
 def createNetwork():                                    # ------FINALLY WE CREATE A NETWORK--------
-  ## input layer ##
-    #None表示输入图片的数量不定，PICN*PICN图片分辨率,通道是4
-    s = tf.placeholder("float", [None, PICN, PICN, 4])
 
-  ## 第一层卷积操作 ##
-    # 第一二参数卷积核尺寸大小，即patch，第三个参数是图像通道数，第四个参数是卷积核的数目，代表会出现多少个卷积特征图像
-    w_conv1 = weight_variable([8, 8, 4, 32])
-    # 对于每一个卷积核都有一个对应的偏置量。
-    b_conv1 = bias_variable([32])
-    # 图片乘以卷积核，并加上偏执量，卷积结果PICN/4 x PICN/4 x32
-    h_conv1 = tf.nn.relu(conv2d(s, w_conv1, 4) + b_conv1)
-    # 卷积结果乘以池化卷积核，池化结果PICN/8 x PICN/8 x32
-    h_pool1 = max_pool_2x2(h_conv1)
+    # None表示输入图片的数量不定，PICN*PICN图片分辨率,通道是4
+    if gl.GAME != 'PacMan':
+        s = tf.placeholder("float", [None, PICN, PICN, 4])
+    else:
+        s = tf.placeholder("float", [11, 20, 6, 4])
 
-  ##第二层卷积操作 ##
-    # 32通道卷积，卷积出64个特征
-    w_conv2 = weight_variable([4, 4, 32, 64])
-    # 64个偏执数据
-    b_conv2 = bias_variable([64])
-    # h_pool1是上一层的池化结果，卷积结果PICN/16 x PICN/16 x64
-    h_conv2 = tf.nn.relu(conv2d(h_pool1, w_conv2, 2) + b_conv2)
-    # 池化结果
-    # h_pool2 = max_pool_2x2(h_conv2)
+    if gl.GAME == 'SpaceInvaders-v0' or gl.GAME == 'Bike':
+        ## input layer ##
 
-  ##第三层卷积操作 ##
-    # 64通道卷积，卷积出64个特征
-    w_conv3 = weight_variable([3, 3, 64, 64])
-    # 64个偏执数据
-    b_conv3 = bias_variable([64])
-    #卷积结果5x5x64
-    h_conv3 = tf.nn.relu(conv2d(h_conv2, w_conv3, 1) + b_conv3)
-    #将第三层卷积结果reshape成只有一行PICN/16 x PICN/16 x64个数据
-    h_conv3_flat = tf.reshape(h_conv3, [-1, int(PICN*PICN/4)])
+        ## 第一层卷积操作 ##
+        # 第一二参数卷积核尺寸大小，即patch，第三个参数是图像通道数，第四个参数是卷积核的数目，代表会出现多少个卷积特征图像
+        w_conv1 = weight_variable([8, 8, 4, 32])
+        # 对于每一个卷积核都有一个对应的偏置量。
+        b_conv1 = bias_variable([32])
+        # 图片乘以卷积核，并加上偏执量，卷积结果PICN/4 x PICN/4 x32
+        h_conv1 = tf.nn.relu(conv2d(s, w_conv1, 4) + b_conv1)
+        # 卷积结果乘以池化卷积核，池化结果PICN/8 x PICN/8 x32
+        h_pool1 = max_pool_2x2(h_conv1)
 
-  ##第四层全连接操作 ##
-    # 二维张量，第一个参数PICN/16 x PICN/16 x64的patch，，第二个参数代表卷积个数共512个
-    w_fc1 = weight_variable([int(PICN*PICN/4), 512])
-    # 512个偏执数据
-    b_fc1 = bias_variable([512])
-    # 卷积操作，结果是1*1*512，单行乘以单列等于1*1矩阵，matmul实现最基本的矩阵相乘
-    h_fc1 = tf.nn.relu(tf.matmul(h_conv3_flat, w_fc1) + b_fc1)
+        ##第二层卷积操作 ##
+        # 32通道卷积，卷积出64个特征
+        w_conv2 = weight_variable([4, 4, 32, 64])
+        # 64个偏执数据
+        b_conv2 = bias_variable([64])
+        # h_pool1是上一层的池化结果，卷积结果PICN/16 x PICN/16 x64
+        h_conv2 = tf.nn.relu(conv2d(h_pool1, w_conv2, 2) + b_conv2)
+        # 池化结果
+        # h_pool2 = max_pool_2x2(h_conv2)
 
-  ## 第五层输出操作 ##
-    w_fc2 = weight_variable([512, ACTIONS])
-    b_fc2 = bias_variable([ACTIONS])
-    # network_result layer
-    network_result = tf.matmul(h_fc1, w_fc2) + b_fc2
+        ##第三层卷积操作 ##
+        # 64通道卷积，卷积出64个特征
+        w_conv3 = weight_variable([3, 3, 64, 64])
+        # 64个偏执数据
+        b_conv3 = bias_variable([64])
+        # 卷积结果5x5x64
+        h_conv3 = tf.nn.relu(conv2d(h_conv2, w_conv3, 1) + b_conv3)
+        # 将第三层卷积结果reshape成只有一行PICN/16 x PICN/16 x64个数据
+        h_conv3_flat = tf.reshape(h_conv3, [-1, int(PICN * PICN / 4)])
 
-    return s, network_result, h_fc1
+        ##第四层全连接操作 ##
+        # 二维张量，第一个参数PICN/16 x PICN/16 x64的patch，，第二个参数代表卷积个数共512个
+        w_fc1 = weight_variable([int(PICN * PICN / 4), 512])
+        # 512个偏执数据
+        b_fc1 = bias_variable([512])
+        # 卷积操作，结果是1*1*512，单行乘以单列等于1*1矩阵，matmul实现最基本的矩阵相乘
+        h_fc1 = tf.nn.relu(tf.matmul(h_conv3_flat, w_fc1) + b_fc1)
+
+        ## 第五层输出操作 ##
+        w_fc2 = weight_variable([512, ACTIONS])
+        b_fc2 = bias_variable([ACTIONS])
+        # network_result layer
+        network_result = tf.matmul(h_fc1, w_fc2) + b_fc2
+
+        return s, network_result, h_fc1
+    elif gl.GAME == 'PacMan':
+        w_fc1 = weight_variable([11, 20, 4, 6])
+        b_fc1 = bias_variable([6])
+        h_fc1 = tf.nn.relu(tf.matmul(s, w_fc1) + b_fc1)
+
+        w_fc2 = weight_variable([6, ACTIONS])
+        b_fc2 = bias_variable([ACTIONS])
+
+        network_result = tf.matmul(h_fc1, w_fc2) + b_fc2
+
+        return s, network_result, h_fc1
 
 
 def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTLE DQN-------------
@@ -220,7 +240,9 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
         ob = env.reset()
     if gl.GAME == 'Bike':
         pass
-
+    if gl.GAME == 'PacMan':
+        game_pacman_agent = PMGM.GamePacmanAgent(PMCF)
+        game_pacman_agent.reset()
     # Game never over
     terminal = False
 
@@ -242,10 +264,17 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
         reward_t = reward
         frame_t = CPHD.CartPolePictureHandle(ob)
         terminal = done
-    # reward_t, frame_t = game.step(stay)
+    elif gl.GAME == 'PacMan':
+        frame, is_win, is_gameover, reward, action = game_pacman_agent.nextFrame(PMHD.PacManActionHandle(stay))
+        reward_t = reward
+        frame_t = frame
+        terminal = PMHD.PacManTerminalHandle(is_win,is_gameover)
+
     # frame_t:input one frame; r_0:reward of first state; terminal:judge game stop or not
 
-    frame_t = cv2.resize(frame_t, (PICN, PICN))
+    if gl.GAME != 'PacMan':
+        frame_t = cv2.resize(frame_t, (PICN, PICN))
+
     # ret, frame_t = cv2.threshold(frame_t, 1, 255, cv2.THRESH_BINARY)          # ret means nothing
     state_t = np.stack((frame_t, frame_t, frame_t, frame_t), axis=2)            # one whole input batch, 4 frames.
     # x_image_array = np.array(frame_t)
@@ -299,16 +328,24 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
             reward_t = reward
             frame_t1 = CPHD.CartPolePictureHandle(ob)
             terminal = done
+        elif gl.GAME == 'PacMan':
+            frame, is_win, is_gameover, reward, action = game_pacman_agent.nextFrame(PMHD.PacManActionHandle(stay))
+            reward_t = reward
+            frame_t1 = frame
+            terminal = PMHD.PacManTerminalHandle(is_win, is_gameover)
 
-        next_frame_t = cv2.resize(frame_t1, (PICN, PICN))
+        if gl.GAME != 'PacMan':
+            next_frame_t = cv2.resize(frame_t1, (PICN, PICN))
+        else:
+            next_frame_t = frame_t1
         # ret, next_frame_t = cv2.threshold(next_frame_t, 1, 255, cv2.THRESH_BINARY)  #2019.8.27 14:20 mod
 
 
         # plt.figimage(next_frame_t)
         # plt.savefig("../BikeGame/jietu/" + str(gl.pi) + ".png")                # to save a convoluted image to debug
         # gl.pi = gl.pi + 1
-
-        next_frame_t = np.reshape(next_frame_t, (PICN, PICN, 1))            # unnecessary operation ??? NO,NECESSARY!
+        if gl.GAME != 'PacMan':
+            next_frame_t = np.reshape(next_frame_t, (PICN, PICN, 1))            # unnecessary operation ??? NO,NECESSARY!
         next_state_t = np.append(next_frame_t, state_t[:, :, :3], axis=2)
 
         # count = 1                                                     # to save a reshaped image to debug//failed
@@ -379,11 +416,15 @@ def trainNetwork(s, net_result, h_fc1, sess):       # ------------TRAIN MY LITTL
         #     a_file.write(",".join([str(x) for x in result_t]) + '\n')
         #     h_file.write(",".join([str(x) for x in h_fc1.eval(feed_dict={s:[state_t]})[0]]) + '\n')
         #     cv2.imwrite("logs_tetris/frame" + str(t) + ".png", next_frame_t)
-        if done:
-            print("Episode finished after {} timesteps".format(1))
-            env.reset()
-        print("==END==",gl.STATE)
-
+        if gl.GAME == 'SpaceInvaders-v0':
+            if done:
+                print("Episode finished after {} timesteps".format(1))
+                env.reset()
+                print("==END==",gl.STATE)
+        elif gl.GAME == 'PacMan':
+            if terminal:
+                print("PacMan Episode finished.")
+                game_pacman_agent.reset()
 
 def startTrain():
     sess = tf.InteractiveSession()
