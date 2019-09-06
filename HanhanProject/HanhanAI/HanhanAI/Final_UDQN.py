@@ -9,7 +9,6 @@ from keras.optimizers import Adam, RMSprop, Adadelta, Nadam
 from keras.utils import plot_model
 import threading
 import time
-
 # 调用实例
 #
 # 声明
@@ -298,59 +297,61 @@ class UDQN:
         plt.xlabel('training steps')
         plt.show()
 
-    def run(self,env, inputImageSize, total_steps, total_reward_list, i_episode, step_num):
+    def run(self,env, inputImageSize, total_steps, total_reward_list, num, step_num):
         import cv2
 
-        # 重置游戏
-        observation = env.reset()
-
-        # 使用opencv做灰度化处理
-        observation = cv2.cvtColor(observation, cv2.COLOR_BGR2GRAY)
-        observation = cv2.resize(observation, (inputImageSize[1], inputImageSize[0]))
-
-        total_reward = 0
-        # start = time.time()
-        # total_time = 0
-
-        while True:
-
-            # 重新绘制一帧
-            env.render()
-
-            action = self.choose_action(observation)
-            # observation_  用于表示游戏的状态
-            # reward        上一个action获得的奖励
-            # done          游戏是否结束
-            # info          用于调试
-            observation_, reward, done, info = env.step(action)
-
-            # # 给reward做处理,BreakoutDeterministic-v4使用
-            # if reward > 0:
-            #     reward = 1
-            # elif reward < 0:
-            #     reward = -1
-
-            # 用于MsPacman-v0模型，未必最优
-            reward = reward / 10
+        i_episode = 0
+        for i_episode in range(num):
+            # 重置游戏
+            observation = env.reset()
 
             # 使用opencv做灰度化处理
-            observation_ = cv2.cvtColor(observation_, cv2.COLOR_BGR2GRAY)
-            observation_ = cv2.resize(observation_, (inputImageSize[1], inputImageSize[0]))
+            observation = cv2.cvtColor(observation, cv2.COLOR_BGR2GRAY)
+            observation = cv2.resize(observation, (inputImageSize[1], inputImageSize[0]))
 
-            self.store_transition(observation, action, reward, observation_)
+            total_reward = 0
+            # start = time.time()
+            # total_time = 0
 
-            total_reward += reward
-            if total_steps > step_num and total_steps % 2 == 0:
-                self.learn()
-            if done:
-                total_reward_list.append(total_reward)
-                print('episode: ', i_episode,
-                      'total_reward: ', round(total_reward, 2),
-                      ' epsilon: ', round(self.epsilon, 2))
-                break
+            while True:
 
-            observation = observation_
-            total_steps += 1
+                # 重新绘制一帧
+                env.render()
+
+                action = self.choose_action(observation)
+                # observation_  用于表示游戏的状态
+                # reward        上一个action获得的奖励
+                # done          游戏是否结束
+                # info          用于调试
+                observation_, reward, done, info = env.step(action)
+
+                # # 给reward做处理,BreakoutDeterministic-v4使用
+                # if reward > 0:
+                #     reward = 1
+                # elif reward < 0:
+                #     reward = -1
+
+                # 用于MsPacman-v0模型，未必最优
+                reward = reward / 10
+
+                # 使用opencv做灰度化处理
+                observation_ = cv2.cvtColor(observation_, cv2.COLOR_BGR2GRAY)
+                observation_ = cv2.resize(observation_, (inputImageSize[1], inputImageSize[0]))
+
+                self.store_transition(observation, action, reward, observation_)
+
+                total_reward += reward
+                if total_steps > step_num and total_steps % 2 == 0:
+                    self.learn()
+                if done:
+                    total_reward_list.append(total_reward)
+                    print('episode: ', i_episode,
+                          'total_reward: ', round(total_reward, 2),
+                          ' epsilon: ', round(self.epsilon, 2))
+                    break
+
+                observation = observation_
+                total_steps += 1
 
 # 用于gym模型游戏
 def init_model(model_name):

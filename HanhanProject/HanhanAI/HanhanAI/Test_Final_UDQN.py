@@ -62,16 +62,14 @@ env = init_model('MsPacman-v0')
 # init_UDQN参数列表env, inputImageSize, choose_optimizers ,lr, rho, beta_1, beta_2, decay, amsgrad, schedule_decay
 # ,0.95,0.0,0.0,1e-6,False,0.0
 
-
-
 RL = init_UDQN(env,(100, 80, 1),'Adadelta',1.0)
 
-for i_episode in range(10):
+# for i_episode in range(10):
 
-    # run()参数列表env, inputImageSize, total_steps, total_reward_list, i_episode
-    RL.run(env,(100,80,1),0,[],i_episode,1)
+# run()参数列表env, inputImageSize, total_steps, total_reward_list, i_episode, step
+RL.run(env,(100,80,1),0,[],10,1)
 
-    # #  重置游戏
+ # #  重置游戏
     # observation = env.reset()
     #
     # # 使用opencv做灰度化处理
