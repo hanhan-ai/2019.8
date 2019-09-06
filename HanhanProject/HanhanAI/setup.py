@@ -17,20 +17,15 @@ setup(
     packages=['HanhanAI'],
     platforms=["all"],
     url='https://github.com/hanhan-ai/2019HanHan',#github网址
-    install_requires=[ 'keras','numpy','matplotlib'],
+    install_requires=[ 'keras>=2.2.5','numpy>=1.17.0','matplotlib>=3.1.1'],
     classifiers=[
-        'Development Status :: 4 - Beta',
-        'Operating System :: OS Independent',
+        'Development Status :: 2 - Pre-Alpha',
+        'Environment :: Console',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'Natural Language :: Chinese (Simplified)',
+        'Operating System :: Microsoft :: Windows :: Windows 10',
         'Programming Language :: Python',
-        'Programming Language :: Python :: Implementation',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Topic :: Software Development :: Libraries'
+        'Programming Language :: Python :: 3.7',
+        'Topic :: Adaptive Technologies'
     ],
 )
