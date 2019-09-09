@@ -1,10 +1,6 @@
-"""
-命名规则：
-        类和文件用帕斯卡命名法
-        函数用驼峰命名法
-        变量用下划线命名法
-
-"""
+# ======================================================================================================================
+# ================================================Brain Part============================================================
+# ======================================================================================================================
 
 import numpy as np
 
@@ -15,8 +11,7 @@ class Network:
             size_inputlayer=0,
             size_hiddenlayer_1=0,
             size_hiddenlayer_2=0,
-            size_outputlayer=0,
-
+            size_outputlayer=0
                  ):
         self.layer_input = size_inputlayer
         self.layer_hidden_1 = size_hiddenlayer_1
@@ -27,22 +22,34 @@ class Network:
         self.weight_hidden_1 = 2*np.random.rand(size_hiddenlayer_1, size_hiddenlayer_2) - 1
         self.weight_hidden_2 = 2*np.random.rand(size_hiddenlayer_2, size_outputlayer) - 1
 
+        self.weight_input_binary = []
+        self.weight_hidden_1_binary = []
+        self.weight_hidden_2_binary = []
+
         self.bias_input = np.random.rand(size_hiddenlayer_1)
         self.bias_hidden_1 = np.random.rand(size_hiddenlayer_2)
         self.bias_hidden_2 = np.random.rand(size_outputlayer)
 
-        self.mutate_freq = 0.5
-        self.final_mutate_freq = 0.01
+        self.bias_input_binary = []
+        self.bias_hidden_1_binary = []
+        self.bias_hidden_2_binary = []
+
+        self.mutate_freq = 0.01
+        self.final_mutate_freq = 0.001
         self.mutate_freq_decay_rate = 0.7
         self.mutate_freq_decay_step = 1000
+        self.mutate_degree_per_gene = 3
 
         self.generation = 1
+
+        self.evaluate_score = 0
+        self.chosen_rate = 0
+        self.accumulative_rate = 0
 
     def decrease_mutate_freq(self):
         if self.mutate_freq > self.final_mutate_freq:
             self.mutate_freq = self.mutate_freq*self.mutate_freq_decay_rate ^ \
                                (self.mutate_freq_decay_step/self.generation)
-
 
     def activationFunc(self, name, x):
         if name == 'relu':
@@ -66,17 +73,12 @@ class Network:
         activated_hidden_2 = self.activationFunc('tanh', out_hidden_2)
 
         out_result = activated_hidden_2
-
+        # print(out_result)
         return out_result
 
 
-def initNetwork(i, h1, h2, o):
-    net = Network(i, h1, h2, o)
-    return net
-
-
 def cross(network_1, network_2):
-
+    print('\nGeneration ', network_1.generation, ' Crossing...\n')
     crossed_network = Network(
         network_1.layer_input,
         network_1.layer_hidden_1,
@@ -86,55 +88,191 @@ def cross(network_1, network_2):
 
     crossed_network.generation = network_1.generation + 1
 
-    crossed_network.weight_input = (network_1.weight_input + network_2.weight_input)/2
-    crossed_network.weight_hidden_1 = (network_1.weight_hidden_1 + network_2.weight_hidden_1)/2
-    crossed_network.weight_hidden_2 = (network_1.weight_hidden_2 + network_2.weight_hidden_2)/2
+    # cross weight
+    weight_input_vec_1 = matrixToVector(network_1.weight_input)
+    weight_input_vec_2 = matrixToVector(network_2.weight_input)
+    weight_input_crossed_vec = []
+    for i in range(len(weight_input_vec_1)):
+        if np.random.rand() < 0.5:
+            weight_input_crossed_vec.append(weight_input_vec_1[i])
+        else:
+            weight_input_crossed_vec.append(weight_input_vec_2[i])
 
-    crossed_network.bias_input = (network_1.bias_input + network_2.bias_input)/2
-    crossed_network.bias_hidden_1 = (network_1.bias_hidden_1 + network_2.bias_hidden_1)/2
-    crossed_network.bias_hidden_2 = (network_1.bias_hidden_2 + network_2.bias_hidden_2)/2
+    weight_hidden_1_vec_1 = matrixToVector(network_1.weight_hidden_1)
+    weight_hidden_1_vec_2 = matrixToVector(network_2.weight_hidden_1)
+    weight_hidden_1_crossed_vec = []
+    for i in range(len(weight_hidden_1_vec_1)):
+        if np.random.rand() < 0.5:
+            weight_hidden_1_crossed_vec.append(weight_hidden_1_vec_1[i])
+        else:
+            weight_hidden_1_crossed_vec.append(weight_hidden_1_vec_2[i])
+
+    weight_hidden_2_vec_1 = matrixToVector(network_1.weight_hidden_2)
+    weight_hidden_2_vec_2 = matrixToVector(network_2.weight_hidden_2)
+    weight_hidden_2_crossed_vec = []
+    for i in range(len(weight_hidden_2_vec_1)):
+        if np.random.rand() < 0.5:
+            weight_hidden_2_crossed_vec.append(weight_hidden_2_vec_1[i])
+        else:
+            weight_hidden_2_crossed_vec.append(weight_hidden_2_vec_2[i])
+
+    # cross bias
+    for i in range(len(crossed_network.bias_input)):
+        if np.random.rand() < 0.5:
+            crossed_network.bias_input[i] = network_1.bias_input[i]
+        else:
+            crossed_network.bias_input[i] = network_2.bias_input[i]
+
+    for i in range(len(crossed_network.bias_hidden_1)):
+        if np.random.rand() < 0.5:
+            crossed_network.bias_hidden_1[i] = network_1.bias_hidden_1[i]
+        else:
+            crossed_network.bias_hidden_1[i] = network_2.bias_hidden_1[i]
+
+    for i in range(len(crossed_network.bias_hidden_2)):
+        if np.random.rand() < 0.5:
+            crossed_network.bias_hidden_2[i] = network_1.bias_hidden_2[i]
+        else:
+            crossed_network.bias_hidden_2[i] = network_2.bias_hidden_2[i]
+
+    print('Cross complete.\n')
 
     return crossed_network
 
 
 def mutate(origin_network):
+    print('Mutate frequency is ', origin_network.mutate_freq,
+          '\nGeneration ', origin_network.generation, ' Mutating...\n')
 
-    for i in range(origin_network.layer_input*origin_network.layer_hidden_1):
-        if np.random.rand() < origin_network.mutate_freq:
-            origin_network.weight_input[np.random.randint(origin_network.layer_input),
-                                        np.random.randint(origin_network.layer_hidden_1)] \
-                                        *= 2*np.random.rand()
+    # mutate weight
+    weight_input_vec = matrixToVector(origin_network.weight_input)
+    for i in range(len(weight_input_vec)):
+        origin_network.weight_input_binary.append(decToBinary(weight_input_vec[i]))
+        for j in range(len(origin_network.weight_input_binary[i])):
+            if np.random.rand() < origin_network.mutate_freq:
+                if origin_network.weight_input_binary[i][j] == '0':
+                    origin_network.weight_input_binary[i] = \
+                        replaceChar(origin_network.weight_input_binary[i], '1', j)
+                elif origin_network.weight_input_binary[i][j] == '1':
+                    origin_network.weight_input_binary[i] = \
+                        replaceChar(origin_network.weight_input_binary[i], '0', j)
+    for i in range(len(weight_input_vec)):
+        weight_input_vec[i] = binaryToDec(origin_network.weight_input_binary[i])
+        origin_network.weight_input = vectorToMatrix(weight_input_vec,
+                                                     origin_network.layer_input,
+                                                     origin_network.layer_hidden_1)
 
-    for i in range(origin_network.layer_hidden_1*origin_network.layer_hidden_2):
-        if np.random.rand() < origin_network.mutate_freq:
-            origin_network.weight_hidden_1[np.random.randint(origin_network.layer_hidden_1),
-                                        np.random.randint(origin_network.layer_hidden_2)] \
-                                        *= 2*np.random.rand()
+    weight_hidden_1_vec = matrixToVector(origin_network.weight_hidden_1)
+    for i in range(len(weight_hidden_1_vec)):
+        origin_network.weight_hidden_1_binary.append(decToBinary(weight_hidden_1_vec[i]))
+        for j in range(len(origin_network.weight_hidden_1_binary[i])):
+            if np.random.rand() < origin_network.mutate_freq:
+                if origin_network.weight_hidden_1_binary[i][j] == '0':
+                    origin_network.weight_hidden_1_binary[i] = \
+                        replaceChar(origin_network.weight_hidden_1_binary[i], '1', j)
+                elif origin_network.weight_hidden_1_binary[i][j] == '1':
+                    origin_network.weight_hidden_1_binary[i] = \
+                        replaceChar(origin_network.weight_hidden_1_binary[i], '0', j)
+    for i in range(len(weight_hidden_1_vec)):
+        weight_hidden_1_vec[i] = binaryToDec(origin_network.weight_hidden_1_binary[i])
+        origin_network.weight_hidden_1 = vectorToMatrix(weight_hidden_1_vec,
+                                                        origin_network.layer_hidden_1,
+                                                        origin_network.layer_hidden_2
+                                                        )
 
-    for i in range(origin_network.layer_hidden_2*origin_network.layer_output):
-        if np.random.rand() < origin_network.mutate_freq:
-            origin_network.weight_hidden_2[np.random.randint(origin_network.layer_hidden_2),
-                                        np.random.randint(origin_network.layer_output)] \
-                                        *= 2*np.random.rand()
+    weight_hidden_2_vec = matrixToVector(origin_network.weight_hidden_2)
+    for i in range(len(weight_hidden_2_vec)):
+        origin_network.weight_hidden_2_binary.append(decToBinary(weight_hidden_2_vec[i]))
+        for j in range(len(origin_network.weight_hidden_2_binary[i])):
+            if np.random.rand() < origin_network.mutate_freq:
+                if origin_network.weight_hidden_2_binary[i][j] == '0':
+                    origin_network.weight_hidden_2_binary[i] = \
+                        replaceChar(origin_network.weight_hidden_2_binary[i], '1', j)
+                elif origin_network.weight_hidden_2_binary[i][j] == '1':
+                    origin_network.weight_hidden_2_binary[i] = \
+                        replaceChar(origin_network.weight_hidden_2_binary[i], '0', j)
+    for i in range(len(weight_hidden_2_vec)):
+        weight_hidden_2_vec[i] = binaryToDec(origin_network.weight_hidden_2_binary[i])
+        origin_network.weight_hidden_2 = vectorToMatrix(weight_hidden_2_vec,
+                                                        origin_network.layer_hidden_2,
+                                                        origin_network.layer_output
+                                                        )
+
+    # mutate bias
+    for i in range(len(origin_network.bias_input)):
+        origin_network.bias_input_binary.append(decToBinary(origin_network.bias_input[i]))
+        for j in range(len(origin_network.bias_input_binary[i])):
+            if np.random.rand() < origin_network.mutate_freq:
+                if origin_network.bias_input_binary[i][j] == '0':
+                    origin_network.bias_input_binary[i] = \
+                        replaceChar(origin_network.bias_input_binary[i], '1', j)
+                elif origin_network.bias_input_binary[i][j] == '1':
+                    origin_network.bias_input_binary[i] = \
+                        replaceChar(origin_network.bias_input_binary[i], '0', j)
+    for i in range(len(origin_network.bias_input)):
+        origin_network.bias_input[i] = binaryToDec(origin_network.bias_input_binary[i])
+
+    for i in range(len(origin_network.bias_hidden_1)):
+        origin_network.bias_hidden_1_binary.append(decToBinary(origin_network.bias_hidden_1[i]))
+        for j in range(len(origin_network.bias_hidden_1_binary[i])):
+            if np.random.rand() < origin_network.mutate_freq:
+                if origin_network.bias_hidden_1_binary[i][j] == '0':
+                    origin_network.bias_hidden_1_binary[i] = \
+                        replaceChar(origin_network.bias_hidden_1_binary[i], '1', j)
+                elif origin_network.bias_hidden_1_binary[i][j] == '1':
+                    origin_network.bias_hidden_1_binary[i] = \
+                        replaceChar(origin_network.bias_hidden_1_binary[i], '0', j)
+    for i in range(len(origin_network.bias_hidden_1)):
+        origin_network.bias_hidden_1[i] = binaryToDec(origin_network.bias_hidden_1_binary[i])
+
+    for i in range(len(origin_network.bias_hidden_2)):
+        origin_network.bias_hidden_2_binary.append(decToBinary(origin_network.bias_hidden_2[i]))
+        for j in range(len(origin_network.bias_hidden_2_binary[i])):
+            if np.random.rand() < origin_network.mutate_freq:
+                if origin_network.bias_hidden_2_binary[i][j] == '0':
+                    origin_network.bias_hidden_2_binary[i] = \
+                        replaceChar(origin_network.bias_hidden_2_binary[i], '1', j)
+                elif origin_network.bias_hidden_2_binary[i][j] == '1':
+                    origin_network.bias_hidden_2_binary[i] = \
+                        replaceChar(origin_network.bias_hidden_2_binary[i], '0', j)
+    for i in range(len(origin_network.bias_hidden_2)):
+        origin_network.bias_hidden_2[i] = binaryToDec(origin_network.bias_hidden_2_binary[i])
+
+    # origin_network.mutate_decrease()
+
+    print('Mutation complete.\n')
+
     return origin_network
 
 
-
-# test
-network_1 = initNetwork(2, 4, 5, 6)
-network_2 = initNetwork(2, 4, 5, 6)
-
-crossed = cross(network_1, network_2)
-print('weight input: \n', crossed.weight_input)
-print('weight h1: \n', crossed.weight_hidden_1)
-print('weight h2: \n', crossed.weight_hidden_2)
-print('layer_input :\n', crossed.layer_input)
-crossed = mutate(crossed)
-print('mutated weight input: \n', crossed.weight_input)
-print('mutated weight h1: \n', crossed.weight_hidden_1)
-print('mutated weight h2: \n', crossed.weight_hidden_2)
+def decToBinary(dec_num):
+    float1_num = (100000000) * dec_num
+    int1_num = int(float1_num)
+    bin_num = bin(int1_num).replace('0b', '')
+    return bin_num
 
 
+def binaryToDec(bin_num):
+    int2_num = int(bin_num, 2)
+    float2_num = float(int2_num)
+    dec2_num = float2_num / (100000000)
+    return dec2_num
+
+
+def matrixToVector(mat):
+    vec = mat.flatten()
+    return vec
+
+
+def vectorToMatrix(vec, column, row):
+    mat = vec.reshape(column, row)
+    return mat
+
+
+def replaceChar(string, char, index):
+    string = list(string)
+    string[index] = char
+    return ''.join(string)
 
 
 
