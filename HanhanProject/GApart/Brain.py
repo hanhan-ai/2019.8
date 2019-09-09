@@ -13,6 +13,7 @@ class Network:
             size_hiddenlayer_2=0,
             size_outputlayer=0
                  ):
+        # define the layers of the nets
         self.layer_input = size_inputlayer
         self.layer_hidden_1 = size_hiddenlayer_1
         self.layer_hidden_2 = size_hiddenlayer_2
@@ -34,6 +35,7 @@ class Network:
         self.bias_hidden_1_binary = []
         self.bias_hidden_2_binary = []
 
+        # define the default parameters of the nets
         self.mutate_freq = 0.01
         self.final_mutate_freq = 0.001
         self.mutate_freq_decay_rate = 0.7
@@ -46,12 +48,12 @@ class Network:
         self.chosen_rate = 0
         self.accumulative_rate = 0
 
-    def decrease_mutate_freq(self):
+    def decrease_mutate_freq(self):     # decrease the mutate frequency
         if self.mutate_freq > self.final_mutate_freq:
             self.mutate_freq = self.mutate_freq*self.mutate_freq_decay_rate ^ \
                                (self.mutate_freq_decay_step/self.generation)
 
-    def activationFunc(self, name, x):
+    def activationFunc(self, name, x):  # activation
         if name == 'relu':
             return np.maximum(0, x)
         elif name == 'sigmoid':
@@ -61,7 +63,7 @@ class Network:
             y = (np.exp(x) - np.exp(-x))/(np.exp(x) + np.exp(-x))
             return y
 
-    def run(self, input_vector):
+    def run(self, input_vector):        # predict the result based on the input
 
         out_input = np.dot(input_vector, self.weight_input) + self.bias_input
         activated_input = self.activationFunc('relu', out_input)
@@ -77,7 +79,7 @@ class Network:
         return out_result
 
 
-def cross(network_1, network_2):
+def cross(network_1, network_2):        # cross two nets to generate the next generation
     print('\nGeneration ', network_1.generation, ' Crossing...\n')
     crossed_network = Network(
         network_1.layer_input,
@@ -140,7 +142,7 @@ def cross(network_1, network_2):
     return crossed_network
 
 
-def mutate(origin_network):
+def mutate(origin_network):         # the next generation mutate their gene
     print('Mutate frequency is ', origin_network.mutate_freq,
           '\nGeneration ', origin_network.generation, ' Mutating...\n')
 
@@ -245,6 +247,7 @@ def mutate(origin_network):
     return origin_network
 
 
+# belows are several tool functions.
 def decToBinary(dec_num):
     float1_num = (100000000) * dec_num
     int1_num = int(float1_num)

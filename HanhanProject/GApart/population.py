@@ -9,16 +9,16 @@ import operator
 import gym
 
 class Population:
-    def __init__(self, population_num):
+    def __init__(self, population_num):             # default init func
         self.size_population = population_num
         self.biont = []
         self.generation = 1
 
-    def initPopulation(self, net_in, net_h1, net_h2, net_out):
+    def initPopulation(self, net_in, net_h1, net_h2, net_out):      # create a new population
         for i in range(self.size_population):
             self.biont.append(Network(net_in, net_h1, net_h2, net_out))
 
-    def selectParents(self):
+    def selectParents(self):        # select excellent biont in the population
 
         total_score = 0
         add_rate = 0
@@ -44,7 +44,7 @@ class Population:
 
         return father, mother
 
-    def breed(self, father, mother):
+    def breed(self, father, mother):            # breed next generation
 
         for i in range(self.size_population):
             self.biont[i] = mutate(cross(father, mother))
@@ -55,18 +55,18 @@ class Population:
         father.generation += 1
         mother.generation += 1
 
-    def saveNet(self, generation):
+    def saveNet(self, generation):          # save the nets selected
         pickle_file = open('./saved_bionts/'+str(generation), 'wb')
         pickle.dump(self.biont, pickle_file)
         pickle_file.close()
 
-    def loadNet(self, generation):
+    def loadNet(self, generation):          # load the previous nets
         pickle_file = open('./saved_bionts/'+str(generation), 'rb')
         bionts = pickle.load(pickle_file)
         pickle_file.close()
         return bionts
 
-    def runGame(self, env):
+    def runGame(self, env):                 # run a game with a proper envirionment
         observation = env.reset()
 
         while True:
