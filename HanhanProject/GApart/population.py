@@ -6,6 +6,7 @@
 from GApart.Brain import *
 import pickle
 import operator
+import gym
 
 class Population:
     def __init__(self, population_num):
@@ -55,15 +56,46 @@ class Population:
         mother.generation += 1
 
     def saveNet(self, generation):
-        pickle_file = open('../saved_bionts/'+str(generation), 'wb')
+        pickle_file = open('./saved_bionts/'+str(generation), 'wb')
         pickle.dump(self.biont, pickle_file)
         pickle_file.close()
 
     def loadNet(self, generation):
-        pickle_file = open('../saved_bionts/'+str(generation), 'rb')
+        pickle_file = open('./saved_bionts/'+str(generation), 'rb')
         bionts = pickle.load(pickle_file)
         pickle_file.close()
         return bionts
 
+    def runGame(self, env):
+        observation = env.reset()
+
+        while True:
+
+            print('-' * 20, 'Generation ', self.biont[0].generation, ' ', '-' * 20)
+
+            # population.loadNet()
+            for i in range(self.size_population):
+                print('======== Biont ', i, ' Playing... ========')
+                reward_vec = []
+                for j in range(10):
+                    episode_reward = 0
+                    while True:
+                        env.render()
+                        action_vec = self.biont[i].run(observation)
+                        action = np.argmax(action_vec)
+                        observation, reward, done, info = env.step(action)
+                        episode_reward += reward
+                        if done:
+                            env.reset()
+                            reward_vec.append(episode_reward)
+                            print('Episode ', j, ' | score = ', episode_reward)
+                            break
+                self.biont[i].evaluate_score = np.mean(reward_vec)
+                print('Biont ', i, ' evaluate score is: ', self.biont[i].evaluate_score)
+
+            father, mother = self.selectParents()
+            self.breed(father, mother)
+
+            self.saveNet(self.biont[0].generation)
 
 
