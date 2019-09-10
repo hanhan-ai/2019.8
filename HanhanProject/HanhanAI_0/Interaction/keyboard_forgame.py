@@ -1,10 +1,18 @@
+'''
+创建人：周智圆
+创建时间：2019.8.20
+最后一次修改时间：2019.8.27
+'''
 #包含模拟键盘输入函数
+
 import win32api
 import win32gui
+
 from win32con import *
 import time
+
 from pymouse import PyMouse
-from Interaction import global_var_model as gl
+from HanhanAI_0.Interaction import global_var_model as gl
 
 
 VK_CODE = {

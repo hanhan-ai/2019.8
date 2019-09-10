@@ -4,6 +4,7 @@
 最后一次修改时间：2019.8.30
 
 """
+#打飞机游戏处理
 
 import gym
 import numpy as np

@@ -1,35 +1,30 @@
-import ctypes
-import inspect
+'''
+创建人：周智圆
+创建时间：2019.8.20
+最后一次修改时间：2019.8.27
+'''
+#启动程序文件
 
 import win32gui
-import win32api
-
 import PyHook3
+
 import pythoncom
 import pyautogui
 
-import os
-import sys
-
-from pymouse import PyMouse
-# from pykeyboard import PyKeyboard
-
-import threading
 from tkinter import *
-import signal
-
 import sys, os
+
 sys.path.append("..")
 sys.path.extend([os.path.join(root, name) for root, dirs, _ in os.walk("../") for name in dirs])
 
-from BikeGame.ai_action import *
-from BikeGame.base_action import *
-from BikeGame.finished import *
+from HanhanAI_0.BikeGame.ai_action import *
+from HanhanAI_0.BikeGame.base_action import *
 
-from BikeGame.picture_handle import *
-from BikeGame.reward_handle import *
-from Interaction import global_var_model as gl
+from HanhanAI_0.BikeGame.finished import *
+from HanhanAI_0.BikeGame.picture_handle import *
 
+from HanhanAI_0.BikeGame.reward_handle import *
+from HanhanAI_0.Interaction.keyboard_forgame import *
 
 PATH='H:\kk'#截图储存位置
 SCREEN_SHOT_TIME=0.04#截屏间隔时间
@@ -60,8 +55,7 @@ def first_window(top):
     stop_button = Button(top, text="点我终止程序", command=stop_event)
     stop_button.pack()
 
-from DeepQNetwork.network import *
-
+from HanhanAI_0.DeepQNetwork.network import *
 #周智圆 2019.8.23
 # 鼠标左击事件处理函数
 clicktime=[0]#记录每次点击事件时间
@@ -161,21 +155,14 @@ def airplane_event():
     gl.GAME='SpaceInvaders-v0'
     startNetwork()
 
-# zsl 2019.9.3 16:01
-def pacman_event():
-    gl.GAME = 'PacMan'
-    startNetwork()
-
 #周智圆 2019.8.23
 #main函数
 if __name__ == "__main__":
     TOP=Tk()
     bike_button=Button(TOP, text="自行车游戏", command=bike_event)
     airplane_button = Button(TOP, text="打飞机游戏", command=airplane_event)
-    pacman_button = Button(TOP, text="吃豆人游戏", command=pacman_event)
     stop_button = Button(TOP, text="点我终止程序", command=stop_event)
     bike_button.pack()
-    pacman_button.pack()
     airplane_button.pack()
     stop_button.pack()
     TOP.mainloop()

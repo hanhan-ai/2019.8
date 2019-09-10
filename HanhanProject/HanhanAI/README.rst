@@ -39,6 +39,6 @@ Directory Structure Instructions
   setup.py
 
 
-V2.0.0 version
+V2.0.1 version
 
-  1. Add neural network with genetic algorithm
+  1. fix bugs

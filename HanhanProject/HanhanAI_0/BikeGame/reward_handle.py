@@ -1,4 +1,9 @@
-from Interaction import global_var_model as gl
+'''
+创建人：赵子轩
+创建时间：2019.8.23
+最后一次修改时间：2019.8.25
+'''
+from HanhanAI_0.Interaction import global_var_model as gl
 #作者：赵子轩；最终修改时间：8.25
 #传入图片img，传入LAST_ADR上一次处理值，输出一个0或1作为reward
 def reward_handle(img):

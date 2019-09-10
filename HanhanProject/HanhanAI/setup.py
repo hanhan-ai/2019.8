@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='HanhanAI',
-    version='2.0.0',
+    version='2.0.1',
     description=
         'Universal game AI system for game developer',
     long_description=open('README.rst').read(),

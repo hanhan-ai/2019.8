@@ -60,12 +60,12 @@ class Population:
         mother.generation += 1
 
     def saveNet(self, generation):          # save the nets selected
-        pickle_file = open('./saved_bionts/'+str(generation), 'wb')
+        pickle_file = open(str(generation), 'wb')
         pickle.dump(self.biont, pickle_file)
         pickle_file.close()
 
     def loadNet(self, generation):          # load the previous nets
-        pickle_file = open('./saved_bionts/'+str(generation), 'rb')
+        pickle_file = open(str(generation), 'rb')
         bionts = pickle.load(pickle_file)
         pickle_file.close()
         return bionts

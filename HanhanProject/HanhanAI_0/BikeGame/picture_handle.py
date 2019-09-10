@@ -1,7 +1,10 @@
-from PIL import Image
-from numpy import *
+'''
+创建人：赵子轩
+创建时间：2019.8.23
+最后一次修改时间：2019.8.25
+'''
+
 import numpy as np
-from Interaction import global_var_model as gl
 
 #作者：赵子轩；最终修改时间：8.25
 #传入图片img作为参数，输出处理完成的图片对应的数组

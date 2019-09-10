@@ -1,5 +1,9 @@
-import pytesseract
-from Interaction.keyboard_forgame import *
+'''
+创建人：赵子轩、周智圆
+创建时间：2019.8.23
+最后一次修改时间：2019.8.27
+'''
+from HanhanAI_0.Interaction.keyboard_forgame import *
 import cv2
 import numpy as np
 

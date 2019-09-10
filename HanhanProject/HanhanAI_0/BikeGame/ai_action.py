@@ -1,8 +1,13 @@
-#周智圆 2019.8.23
+'''
+创建人：周智圆
+创建时间：2019.8.21
+最后一次修改时间：2019.8.23
+'''
+
 #AI操作函数
 #action[left,right,spacebar,]:1表示执行，0表示不执行
 from win32con import *
-from Interaction.keyboard_forgame import *
+from HanhanAI_0.Interaction.keyboard_forgame import *
 
 def game_ai_action(action):
     if action[0]==1:

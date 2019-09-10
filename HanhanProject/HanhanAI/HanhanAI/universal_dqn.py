@@ -1,11 +1,14 @@
 #创建人：赵子轩
 #创建时间：2019.9.1
 #最后一次修改时间：2019.9.10
+import os
 import numpy as np
 # 按顺序建立的神经网络
-from keras.models import Sequential
+
+from keras.models import Sequential, load_model
 # dense是全连接层，这里选择你要用的神经网络层参数
 from keras.layers import LSTM, TimeDistributed, Dense, Activation,Convolution2D, MaxPooling2D, Flatten
+
 # 选择优化器
 from keras.optimizers import Adam, RMSprop, Adadelta, Nadam
 # 调用实例
@@ -76,7 +79,6 @@ class UDQN:
                                                self.observation_shape[1], self.observation_shape[2]), dtype='int16')
         self.memoryReward = np.zeros(self.memory_size, dtype='float64')
         self.memoryAction = np.zeros(self.memory_size, dtype='int16')
-        self._build_net()
 
         # 记录cost然后画出来
         self.cost_his = []
@@ -259,6 +261,17 @@ class UDQN:
         self.epsilon = self.epsilon + self.epsilon_increment if self.epsilon < self.epsilon_max else self.epsilon_max
         self.learn_step_counter += 1
 
+    #存储模型
+    def store_model(self):
+        print('updata and save model  ')
+        self.model_eval.save('model_eval')
+        self.model_target.save('model_target')
+
+    # 加载模型
+    def load_model(self):
+        self.model_eval = load_model('model_eval')
+        self.model_target = load_model('model_target')
+
     # 打印损速函数梯度变化图
     def plot_cost(self):
         import matplotlib.pyplot as plt
@@ -314,6 +327,7 @@ class UDQN:
 
                 observation = observation_
                 total_steps += 1
+        self.store_model()
 
 # 用于gym模型游戏初始化
 def init_model(model_name):
@@ -352,11 +366,17 @@ def init_UDQN(env, inputImageSize, choose_optimizers, lr):
                   # my_amsgrad = amsgrad,
                   # my_schedule_decay = schedule_decay
         )
-        # thread1 = myThread(1, "Thread-1", 1)
-        # thread1.start()
-        return RL
+
     except Exception as e:
         print('invalid input,please input something like gym model')
         exit('sorry')
 
+    if os.path.isfile('model_eval') and os.path.isfile('model_target'):
+        print('load_model')
+        RL.load_model()
+    else:
+        print('build_model')
+        RL._build_net()
+
+    return RL
 
