@@ -1,7 +1,12 @@
 # ======================================================================================================================
 # =========================================Population & Select Part=====================================================
 # ======================================================================================================================
+"""
+作者：赵士陆
+创建时间：2019.9.4
+最后一次修改时间：2019.9.10
 
+"""
 
 from GApart.Brain import *
 import pickle
@@ -33,7 +38,7 @@ class Population:
             add_rate += self.biont[i].chosen_rate
             self.biont[i].accumulative_rate = add_rate
 
-        sort_key = operator.attrgetter('evaluate_score')
+        sort_key = operator.attrgetter('evaluate_score')        # select two most excellent bionts to be parents
         self.biont.sort(key=sort_key, reverse=True)
 
         father = self.biont[0]

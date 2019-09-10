@@ -1,7 +1,12 @@
 # ======================================================================================================================
 # ================================================Brain Part============================================================
 # ======================================================================================================================
+"""
+作者：赵士陆
+创建时间：2019.9.2
+最后一次修改时间：2019.9.10
 
+"""
 import numpy as np
 
 
@@ -91,8 +96,8 @@ def cross(network_1, network_2):        # cross two nets to generate the next ge
     crossed_network.generation = network_1.generation + 1
 
     # cross weight
-    weight_input_vec_1 = matrixToVector(network_1.weight_input)
-    weight_input_vec_2 = matrixToVector(network_2.weight_input)
+    weight_input_vec_1 = matrixToVector(network_1.weight_input)         # weight matrix --> weight vector
+    weight_input_vec_2 = matrixToVector(network_2.weight_input)         # then cross
     weight_input_crossed_vec = []
     for i in range(len(weight_input_vec_1)):
         if np.random.rand() < 0.5:
@@ -150,9 +155,9 @@ def mutate(origin_network):         # the next generation mutate their gene
     weight_input_vec = matrixToVector(origin_network.weight_input)
     for i in range(len(weight_input_vec)):
         origin_network.weight_input_binary.append(decToBinary(weight_input_vec[i]))
-        for j in range(len(origin_network.weight_input_binary[i])):
-            if np.random.rand() < origin_network.mutate_freq:
-                if origin_network.weight_input_binary[i][j] == '0':
+        for j in range(len(origin_network.weight_input_binary[i])):                     # weight matrix-->weight vector
+            if np.random.rand() < origin_network.mutate_freq:                           # trans values in weight vector
+                if origin_network.weight_input_binary[i][j] == '0':                     # from Decimal to binary
                     origin_network.weight_input_binary[i] = \
                         replaceChar(origin_network.weight_input_binary[i], '1', j)
                 elif origin_network.weight_input_binary[i][j] == '1':
