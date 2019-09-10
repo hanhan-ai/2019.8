@@ -4,7 +4,7 @@ Deep Q network,
 """
 
 
-from Final_UDQN import UDQN, init_model,init_UDQN
+from UniversalDeepQNetwork.Final_UDQN import UDQN, init_model,init_UDQN
 import cv2
 import numpy as np
 import time
@@ -43,8 +43,8 @@ import os
 # thread1.start()
 # total_reward_list = []
 
-# env = init_model('SpaceInvaders-v0')
-env = init_model('MsPacman-v0')
+env = init_model('SpaceInvaders-v0')
+#env = init_model('MsPacman-v0')
 # print('env    ',type(env))
 # print(env)
 # print('env.action_space',env.action_space)
@@ -62,12 +62,12 @@ env = init_model('MsPacman-v0')
 # init_UDQN参数列表env, inputImageSize, choose_optimizers ,lr, rho, beta_1, beta_2, decay, amsgrad, schedule_decay
 # ,0.95,0.0,0.0,1e-6,False,0.0
 
-RL = init_UDQN(env,(100, 80, 1),'Adadelta',1.0)
+RL = init_UDQN(env,(100, 80, 1),'Adam',1.0)
 
 # for i_episode in range(10):
 
 # run()参数列表env, inputImageSize, total_steps, total_reward_list, i_episode, step
-RL.run(env,(100,80,1),0,[],10,1)
+RL.run(env,(100,80,1),0,[],100,50)
 
  # #  重置游戏
     # observation = env.reset()

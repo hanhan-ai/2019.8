@@ -1,3 +1,0 @@
-model_checkpoint_path: "My DQN ball catch-dqn-20000"
-all_model_checkpoint_paths: "My DQN ball catch-dqn-10000"
-all_model_checkpoint_paths: "My DQN ball catch-dqn-20000"

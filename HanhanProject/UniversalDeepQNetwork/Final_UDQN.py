@@ -140,7 +140,8 @@ class UDQN:
             # (10, 8, 30)
             Flatten(),
             Dense(512, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
-            Dense(self.n_actions, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
+            Dense(64, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
+            Dense(self.n_actions, use_bias=True, kernel_initializer='TruncatedNormal'),
         ])
 
 
@@ -167,7 +168,7 @@ class UDQN:
             print('Nadam', '已选择')
             opt = Nadam(lr=self.lr, beta_1=0.9, beta_2=0.999, epsilon=None, schedule_decay=0.004)
 
-        self.model_eval.compile(loss='mse',
+        self.model_eval.compile(loss='binary_crossentropy',
                                 optimizer=opt,
                                 metrics=['accuracy'])
 
@@ -200,7 +201,8 @@ class UDQN:
             # 21 * 16 * 60 = 20160
             Flatten(),
             Dense(512, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
-            Dense(self.n_actions, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
+            Dense(64, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
+            Dense(self.n_actions, activation='sigmoid',use_bias=True, kernel_initializer='TruncatedNormal'),
         ])
 
     def store_transition(self, s, a, r, s_):

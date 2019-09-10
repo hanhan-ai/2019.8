@@ -1,3 +1,6 @@
+#创建人：赵子轩
+#创建时间：2019.9.1
+#最后一次修改时间：2019.9.10
 import numpy as np
 # 按顺序建立的神经网络
 from keras.models import Sequential
@@ -28,7 +31,7 @@ from keras.optimizers import Adam, RMSprop, Adadelta, Nadam
 #
 #     如不考虑精确度，可以用run函数替代for循环直接运行
 
-
+#完整DQN神经网络类
 class UDQN:
     def __init__(
             self,
@@ -79,6 +82,7 @@ class UDQN:
         self.cost_his = []
         self.reward = []
 
+    # 搭建神经网络，包括初始化卷积层，池化层，选择激活函数，优化器，损失函数等
     def _build_net(self):
         # ------------------ 建造估计层 ------------------
         # 因为神经网络在这个地方只是用来输出不同动作对应的Q值，最后的决策是用Q表的选择来做的
@@ -113,7 +117,8 @@ class UDQN:
             # (10, 8, 30)
             Flatten(),
             Dense(512, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
-            Dense(self.n_actions, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
+            Dense(64, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
+            Dense(self.n_actions, use_bias=True, kernel_initializer='TruncatedNormal'),
         ])
 
 
@@ -173,9 +178,11 @@ class UDQN:
             # 21 * 16 * 60 = 20160
             Flatten(),
             Dense(512, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
-            Dense(self.n_actions, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
+            Dense(64, activation='relu', use_bias=True, kernel_initializer='TruncatedNormal'),
+            Dense(self.n_actions, use_bias=True, kernel_initializer='TruncatedNormal'),
         ])
 
+    # 储存训练结果
     def store_transition(self, s, a, r, s_):
         # hasattr(object, name),对象有该属性返回 True,否则返回 False。
         if not hasattr(self, 'memory_counter'):
@@ -192,6 +199,7 @@ class UDQN:
 
         self.memory_counter += 1
 
+    # 根据神经网络选择游戏的动作
     def choose_action(self, observation):
         # 插入一个新的维度 矩阵运算时需要新的维度来运算
         observation = observation[np.newaxis, :, :, np.newaxis]
@@ -206,6 +214,7 @@ class UDQN:
             action = np.random.randint(0, self.n_actions)
         return action
 
+    # 做参数替换并获取损速函数梯度
     def learn(self):
 
         # 经过一定的步数来做参数替换
@@ -250,6 +259,7 @@ class UDQN:
         self.epsilon = self.epsilon + self.epsilon_increment if self.epsilon < self.epsilon_max else self.epsilon_max
         self.learn_step_counter += 1
 
+    # 打印损速函数梯度变化图
     def plot_cost(self):
         import matplotlib.pyplot as plt
         plt.plot(np.arange(len(self.cost_his)), self.cost_his)
@@ -257,6 +267,7 @@ class UDQN:
         plt.xlabel('training steps')
         plt.show()
 
+    # 简单调用整个dqn
     def run(self,env, inputImageSize, total_steps, total_reward_list, num, step_num):
         import cv2
 
@@ -304,7 +315,7 @@ class UDQN:
                 observation = observation_
                 total_steps += 1
 
-# 用于gym模型游戏
+# 用于gym模型游戏初始化
 def init_model(model_name):
     import gym
     model_list = model_name.split('-')
@@ -313,6 +324,8 @@ def init_model(model_name):
     env = env.unwrapped
     return env
 
+
+#初始化udqn类的对象
 # env表示模型，inputImageSize表示输入图片的大小
 # choose_optimizers   learning_rate
 #      Adam             0.001
